@@ -21,6 +21,8 @@ export interface Props {
     padding?: PaddingSize;
     paddingTop?: PaddingSize;
     paddingBottom?: PaddingSize;
+    iconType?: 'checkmark' | 'numbered';
+    showIcons?: boolean;
 }
 
 const {
@@ -31,7 +33,9 @@ const {
         button,
         features
     },
-    background = 'base'
+    background = 'base',
+    iconType = 'checkmark',
+    showIcons = true
 } = Astro.props;
 
 const bgColor = getBackgroundColor(background);
@@ -87,21 +91,40 @@ const paddingClass = getPaddingClass({
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
                 >
-                    <div class:list={[
-                        "w-12 h-12 flex items-center justify-center rounded-lg mb-4",
-                        "bg-primary"
-                    ]}>
-                        <feature.icon
-                            size={24}
-                            class="text-white"
-                        />
-                    </div>
+                    {showIcons && (
+                        <div class:list={[
+                            "flex items-center justify-center rounded-lg mb-4",
+                            "bg-primary",
+                            iconType === 'numbered' ? 'px-3 py-2' : 'w-12 h-12'
+                        ]}>
+                            {iconType === 'numbered' ? (
+                                <span class="text-white text-sm font-bold whitespace-nowrap">Step {index + 1}</span>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6 text-white">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                            )}
+                        </div>
+                    )}
                     <h3 class:list={["text-h4 mb-2", textColor]}>
                         {feature.title}
                     </h3>
                     <p class:list={["text-base", textColor, "opacity-90"]}>
                         {feature.description}
                     </p>
+                    {feature.link && (
+                        <a
+                            href={feature.link}
+                            target={feature.linkTarget || '_self'}
+                            class="mt-4 inline-flex items-center text-primary hover:underline font-semibold"
+                            {...(feature.linkTarget === '_blank' && { rel: 'noopener noreferrer' })}
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                            </svg>
+                            {feature.linkText || 'Learn More'}
+                        </a>
+                    )}
                 </div>
             ))}
         </div>

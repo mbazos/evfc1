@@ -1,0 +1,102 @@
+---
+import Layout from '@layouts/Layout.astro';
+import InnerHero from '@components/sections/InnerHero.astro';
+import Features from '@components/sections/Features.astro';
+import SplitPanel from '@components/sections/SplitPanel.astro';
+import CtaBanner from '@components/sections/CtaBanner.astro';
+import gearImage from '../assets/images/pages/gear.jpg';
+import firefightersImage from '../assets/images/pages/slide-firefighters.jpg';
+
+const seoTitle = "Support EVFC1 | Donate to Easton Volunteer Fire Company #1";
+const seoDescription = "Support EVFC1 with a tax-deductible donation. Your contributions help us respond to 500+ emergency calls annually and maintain our equipment and training programs.";
+
+const heroContent = {
+    title: "Support Easton Volunteer Fire Company",
+    description: "Help Us Continue Serving Easton",
+}
+
+const impactSection = {
+    eyebrow: "YOUR IMPACT",
+    title: "How Your Donations Make a Difference",
+    description: "As a volunteer organization, we rely on community support to maintain our equipment, facilities, and training programs. Your donations help us respond to over 500 emergency calls each year.",
+    features: [
+        {
+            title: "Modern Equipment",
+            description: "Fund the purchase and maintenance of state-of-the-art firefighting and rescue equipment.",
+            icon: "truck"
+        },
+        {
+            title: "Training Programs",
+            description: "Support ongoing training and certifications for our firefighters to ensure the highest level of service.",
+            icon: "academic-cap"
+        },
+        {
+            title: "Station Maintenance",
+            description: "Help maintain our facilities to ensure we're always ready to respond to emergencies.",
+            icon: "home"
+        },
+        {
+            title: "Community Events",
+            description: "Support our annual carnival and community outreach programs that bring Easton together.",
+            icon: "users"
+        }
+    ]
+}
+
+const donationMethodsSection = {
+    eyebrow: "HOW TO DONATE",
+    headline: "Ways to Support",
+    description: "We offer several convenient ways to make your tax-deductible contribution. Every donation, no matter the size, helps us protect and serve our community.",
+    image: {
+        src: gearImage,
+        alt: "EVFC1 Firefighting Gear"
+    },
+    buttons: []
+}
+
+const donationMethods = {
+    eyebrow: "DONATION OPTIONS",
+    title: "Choose Your Method",
+    description: "Select the donation method that works best for you.",
+    features: [
+        {
+            title: "Online Donation",
+            description: "Make a secure donation through PayPal or credit card.",
+            icon: "credit-card",
+            link: "https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=M2DAJTQKRL5BE&ssrt=1760495035706",
+            linkText: "Donate Now",
+            linkTarget: "_blank" as const
+        },
+        {
+            title: "Mail a Check",
+            description: "Send checks to: 1 Center Road, Easton CT 06612. Make payable to: Easton Volunteer Fire Company.",
+            icon: "mail"
+        },
+        {
+            title: "Special Donations",
+            description: "Interested in vehicle donations or other special contributions? Contact us at info@evfc1.com.",
+            icon: "gift"
+        }
+    ]
+}
+
+const taxInfoSection = {
+    eyebrow: "TAX INFORMATION",
+    headline: "Tax-Deductible Contributions",
+    description: "The Easton Volunteer Fire Company is a 501(c)(3) non-profit organization. Donors can deduct contributions under IRS Section 170. Your donations are qualified for tax-deductible bequests, devises, transfers, or gifts under IRS Section 2055, 2106, or 2522.",
+    image: {
+        src: firefightersImage,
+        alt: "EVFC1 Firefighters"
+    },
+    buttons: []
+}
+
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <InnerHero content={heroContent} />
+    <Features content={impactSection} background="light" padding="base" />
+    <SplitPanel content={donationMethodsSection} imagePosition="right" background="base" padding="base" />
+    <Features content={donationMethods} background="light" padding="base" showIcons={false} />
+    <SplitPanel content={taxInfoSection} imagePosition="left" background="base" padding="base" />
+</Layout>

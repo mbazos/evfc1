@@ -1,12 +1,15 @@
-import { Zap, Shield, Heart, Coffee, Smile, Type, TabletSmartphone, CodeXml } from 'lucide-astro';
+import { Flame, Shield, Heart, Users, Truck, Clock, Siren, Award } from 'lucide-astro';
 
 // Define the LucideIcon type based on the structure of Lucide icons
-type LucideIcon = typeof Zap;
+type LucideIcon = typeof Flame;
 
 export interface Feature {
     icon: LucideIcon;
     title: string;
     description: string;
+    link?: string;
+    linkText?: string;
+    linkTarget?: '_self' | '_blank';
 }
 
 export interface FeatureList {
@@ -20,34 +23,34 @@ export const featureLists: Record<string, FeatureList> = {
         id: 'main',
         features: [
             {
-                icon: Zap,
-                title: 'Lightning Fast Performance',
-                description: 'Optimized for speed and performance'
+                icon: Flame,
+                title: 'Fire Protection',
+                description: 'Professional firefighting services protecting Easton since 1921'
             },
             {
                 icon: Shield,
-                title: 'SEO Optimized Structure',
-                description: 'Built with SEO best practices in mind'
+                title: 'Emergency Response',
+                description: 'Rapid response to fires, hazmat incidents, flooding, and disasters'
             },
             {
-                icon: TabletSmartphone,
-                title: 'Responsive by Default',
-                description: 'Mobile-friendly out of the box'
+                icon: Truck,
+                title: 'State-of-the-Art Apparatus',
+                description: 'Four modern fire engines equipped for any emergency'
             },
             {
-                icon: Smile,
-                title: 'Easy Customization',
-                description: 'Customize the theme to your liking'
+                icon: Clock,
+                title: '24/7 Protection',
+                description: 'Round-the-clock staffing with career and volunteer firefighters'
             },
             {
-                icon: Type,
-                title: 'TypeScript Support',
-                description: 'Built with TypeScript in mind'
+                icon: Users,
+                title: 'Community Service',
+                description: 'Dedicated volunteers serving and protecting our neighbors'
             },
             {
-                icon: CodeXml,
-                title: 'Minimal Dependencies',
-                description: 'Keep your project lightweight'
+                icon: Award,
+                title: 'Highly Trained',
+                description: 'Firefighter I & II, HazMat, and specialized rescue certifications'
             }
         ]
     },
@@ -56,18 +59,18 @@ export const featureLists: Record<string, FeatureList> = {
         features: [
             {
                 icon: Heart,
-                title: 'Made with Love',
-                description: 'Crafted with attention to detail'
+                title: 'Community Focused',
+                description: 'Serving Easton with dedication and pride'
             },
             {
-                icon: Coffee,
-                title: 'Always Fresh',
-                description: 'Regular updates and improvements'
+                icon: Users,
+                title: 'Volunteer Opportunities',
+                description: 'Join our team and make a difference'
             },
             {
-                icon: Smile,
-                title: 'User Friendly',
-                description: 'Intuitive and easy to use'
+                icon: Shield,
+                title: 'Always Ready',
+                description: 'Prepared to respond to any emergency, any time'
             }
         ]
     }

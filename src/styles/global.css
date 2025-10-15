@@ -198,6 +198,45 @@
         --color-footer-logo: var(--color-primary);
     }
 
+    [data-theme='evfc1'] {
+        --color-primary: #cc0000;
+        --color-primary-light: #e60000;
+        --color-primary-dark: #990000;
+        --color-secondary: #003366;
+        --color-secondary-light: #004d99;
+        --color-secondary-dark: #002244;
+        --color-accent: #cc0000;
+        --color-background: #ffffff;
+        --color-background-light: #f5f5f5;
+        --color-background-dark: #1a1a1a;
+        --color-headline: #1a1a1a;
+        --color-headline-light: #1a1a1a;
+        --color-headline-dark: #ffffff;
+        --color-body-base: #333333;
+        --color-body-light: #333333;
+        --color-body-dark: #ffffff;
+        --color-eyebrow: #cc0000;
+        --color-eyebrow-light: #cc0000;
+        --color-eyebrow-dark: #e60000;
+        --color-input: var(--color-background-light);
+        --color-input-light: var(--color-background-light);
+        --color-input-dark: var(--color-background-dark);
+        --color-input-text: var(--color-body-base);
+        --color-input-text-light: var(--color-headline-light);
+        --color-input-text-dark: var(--color-headline-dark);
+        --color-nav-text: var(--color-body-base);
+        --color-nav-text-hover: var(--color-primary);
+        --color-nav-text-active: var(--color-primary);
+        --color-nav-text-current: var(--color-primary);
+        --color-nav-submenu-bg: var(--color-background-light);
+        --color-nav-mobile-text: #ffffff;
+        --color-nav-mobile-text-hover: #e60000;
+        --color-nav-mobile-text-active: #ffffff;
+        --color-nav-mobile-text-current: #ffffff;
+        --color-header-logo: var(--color-primary);
+        --color-footer-logo: var(--color-primary);
+    }
+
     [data-theme='apollo'] {
         --color-primary: #cc7000;
         --color-primary-light: #e68a00;
@@ -520,21 +559,7 @@ body {
 }
 
 .hero-background {
-    --s: 34px;
-    /* control the size*/
-    --c1: var(--color-primary);
-    --c2: var(--color-primary-dark);
-
-    --_g:
-    var(--c1) 0% 5%, var(--c2) 6% 15%, var(--c1) 16% 25%, var(--c2) 26% 35%, var(--c1) 36% 45%,
-    var(--c2) 46% 55%, var(--c1) 56% 65%, var(--c2) 66% 75%, var(--c1) 76% 85%, var(--c2) 86% 95%,
-    #0000 96%;
-    background:
-        radial-gradient(50% 50% at 100% 0, var(--_g)),
-        radial-gradient(50% 50% at 0 100%, var(--_g)),
-        radial-gradient(50% 50%, var(--_g)),
-        radial-gradient(50% 50%, var(--_g)) calc(var(--s)/2) calc(var(--s)/2) var(--c1);
-    background-size: var(--s) var(--s);
+    background: var(--color-primary);
 }
 
 /* Style the pre element containing the code */

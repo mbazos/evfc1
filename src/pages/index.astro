@@ -6,139 +6,107 @@ import Features from '@components/sections/Features.astro';
 import Stats from '@components/sections/Stats.astro';
 import { featureLists } from '@data/features';
 import { statsLists } from '@data/stats';
-import Logos from '@components/sections/Logos.astro';
-import { logoLists } from '@data/logos';
 import CtaBanner from '@components/sections/CtaBanner.astro';
-import Faqs from '@components/sections/Faqs.astro';
-import { faqLists } from '@data/faqs';
-import RecentPosts from '@components/sections/RecentPosts.astro';
-import heroImage from '../assets/images/home/default-hero-2.jpg';
-import styleGuideImage from '../assets/images/home/developer.jpg';
+import heroImage from '../assets/images/home/slide-firehouse.jpg';
+import apparatusImage from '../assets/images/home/engine-1-3.jpg';
 
-const seoTitle = "Modern, High-Performance Astro Theme";
-const seoDescription = "A modern, high-performance Astro theme for developer portfolios and documentation sites.";
+const seoTitle = "Easton Volunteer Fire Company #1 | Serving Since 1921";
+const seoDescription = "Protecting Easton, Connecticut since 1921. Professional career and volunteer firefighters providing 24/7 emergency response to fires, hazmat, flooding, and disasters.";
 
 const heroContent = {
-    title: 'The Foundation for Beautiful Astro JS Websites',
-    description: 'Titan Core is a minimal, performance-focused Astro JS theme that serves as the perfect foundation for your next web project. Built with clean code and modern best practices, it\'s designed to be extended and customized to your specific needs.',
+    title: 'Easton Volunteer Fire Company #1',
+    description: 'Serving our community since 1921. We stand ready to protect and assist in the face of fire, flooding, hazardous materials, or other modern disasters. Staffed 24/7 with professional career firefighters and dedicated volunteers.',
     buttons: [
         {
-            text: 'Get Started',
-            link: '/contact',
+            text: 'Join Our Team',
+            link: '/join',
             target: '_self'
         },
         {
-            text: 'View on GitHub',
-            link: 'https://github.com/rspisarski/titan-core',
-            target: '_blank'
+            text: 'Support Us',
+            link: '/donate',
+            target: '_self'
         }
     ],
     backgroundImage: heroImage,
-    overlayOpacity: 0.2
+    overlayOpacity: 0.3
 }
 
 const featuresSection = {
-    eyebrow: "CORE FEATURES",
-    title: "Everything You Need, Nothing You Don't",
-    description: "Titan Core gives you a solid foundation with essential features while staying lightweight and customizable. Start with a clean slate and build exactly what you need without the bloat.",
+    eyebrow: "OUR SERVICES",
+    title: "Protecting Easton with Excellence",
+    description: "For over 90 years, we've been serving our community with dedication and professionalism. Our team of career and volunteer firefighters provides comprehensive emergency services to keep Easton safe.",
     features: featureLists.main.features,
     button: {
-        text: "View Theme Info",
-        link: "/theme-info",
+        text: "Learn About Us",
+        link: "/about",
         variant: "primary" as const
     }
 }
 
 const FooterCta = {
-    eyebrow: "Join The Community",
-    title: ' Start Building With Titan Core Today',
-    description: 'Titan Core is open-source and constantly improving. Join our community of developers to contribute, get support, or showcase what you\'ve built.',
+    eyebrow: "Support Your Community",
+    title: 'Help Us Continue Serving Easton',
+    description: 'As a volunteer organization, we rely on community support to maintain our equipment, facilities, and training programs. Your donations help us respond to over 500 emergency calls each year.',
     hideCta: false,
     button: {
-        text: 'Download Titan Core',
-        link: 'https://github.com/rspisarski/titan-core',
-        target: '_blank'
+        text: 'Make a Donation',
+        link: '/donate',
+        target: '_self'
     }
 }
 
-const styleGuideSection = {
-    eyebrow: "Design System",
-    headline: "Consistent & Beautiful Components",
-    description: "Titan Core comes with a complete style guide to ensure your projects maintain visual consistency. From typography to interactive elements, we've carefully crafted each component.",
+const apparatusSection = {
+    eyebrow: "OUR EQUIPMENT",
+    headline: "State-of-the-Art Fire Apparatus",
+    description: "We maintain four modern fire engines equipped for structure fires, rescue operations, water supply, and specialized emergencies. Each vehicle is staffed with trained professionals ready to respond at a moment's notice.",
     image: {
-        src: styleGuideImage,
-        alt: "Featured image"
+        src: apparatusImage,
+        alt: "EVFC1 Fire Apparatus"
     },
     buttons: [
         {
-            text: "Explore Style Guide",
-            link: "/style-guide",
+            text: "View Our Apparatus",
+            link: "/apparatus",
             variant: "primary" as const
         }
     ]
 }
 
 const sideBySideStats = {
-    eyebrow: "Stats",
-    title: "Built for Speed and Flexibility",
-    description: "Titan Core is designed with performance and developer experience in mind. Our lightweight theme gives you all the essentials without the bloat, letting you build exactly what you need with impressive speed.",
+    eyebrow: "BY THE NUMBERS",
+    title: "A Legacy of Service",
+    description: "For over nine decades, Easton Volunteer Fire Company #1 has been protecting our community with dedication and professionalism. These numbers reflect our commitment to Easton.",
     variant: 'side-by-side' as const,
     stats: statsLists.withContent.stats,
     content: {
-        title: "Built for Speed and Flexibility",
-        description: "Titan Core is designed with performance and developer experience in mind. Our lightweight theme gives you all the essentials without the bloat, letting you build exactly what you need with impressive speed.",
+        title: "Serving Easton Since 1921",
+        description: "We maintain at least two full-time firefighters on duty around the clock, with dedicated volunteers ready to respond when needed. This combination ensures Easton receives professional emergency services 24/7/365. Together, we respond to over 500 calls annually.",
         button: {
-            text: "Discover Titan Core",
-            link: "/theme-info",
+            text: "Meet Our Team",
+            link: "/members",
             variant: "primary" as const
         }
     }
 };
 
-const mainCta = {
-    eyebrow: "Build Blocks",
-    title: "Ready-to-Use Components",
-    description: "Save development time with our pre-built, accessible components. Each one is designed to integrate seamlessly with your projects while maintaining excellent performance.",
+const recruitmentCta = {
+    eyebrow: "JOIN US",
+    title: "Become Part of Our Team",
+    description: "Are you an Easton resident looking to serve your community? We're always looking for dedicated individuals to join our volunteer firefighting team. No experience necessary - we provide all training.",
     button: {
-        text: "View All Components",
-        link: "/components",
+        text: "Learn How to Join",
+        link: "/join",
         variant: "primary" as const,
         target: "_self" as const
     }
 };
-
-
-const logosSection = {
-    eyebrow: "Our Clients",
-    logos: logoLists.main.logos
-}
-
-const faqsSection = {
-    eyebrow: "FAQs",
-    title: 'Frequently Asked Questions',
-    description: 'Find answers to common questions about our platform and services.',
-    faqs: faqLists.main.faqs
-}
-
-const recentPostsSection = {
-    eyebrow: "LATEST INSIGHTS",
-    title: " Learn From Our Experience",
-    description: "Explore our latest articles on Astro JS development, theme customization tips, and web performance best practices.",
-    button: {
-            text: "View All Posts",
-            link: "/blog",
-        variant: "primary" as const
-    }
-}
 ---
 
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
     <Features content={featuresSection} padding="base" background="light" />
-    <RecentPosts content={recentPostsSection} background="base" padding="base" postsToShow={3} category="Theme Usage"/>
-    <SplitPanel content={styleGuideSection} imagePosition="right" background="light" padding="base" />
-    <CtaBanner content={mainCta} variant="contained" background="light" paddingBottom="base" />
-    <Logos content={logosSection} background="base" padding='small'/>
+    <SplitPanel content={apparatusSection} imagePosition="right" background="base" padding="base" />
     <Stats content={sideBySideStats} background='dark' padding="base"/>
-    <Faqs content={faqsSection} background="base" padding="base" />
+    <CtaBanner content={recruitmentCta} variant="contained" background="light" paddingBottom="base" />
 </Layout>

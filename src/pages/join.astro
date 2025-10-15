@@ -1,0 +1,117 @@
+---
+import Layout from '@layouts/Layout.astro';
+import InnerHero from '@components/sections/InnerHero.astro';
+import Features from '@components/sections/Features.astro';
+import SplitPanel from '@components/sections/SplitPanel.astro';
+import CtaBanner from '@components/sections/CtaBanner.astro';
+import joinImage from '../assets/images/pages/join.jpg';
+
+const seoTitle = "Join Our Team | Easton Volunteer Fire Company #1";
+const seoDescription = "Become a volunteer firefighter with EVFC1. Serve your community, learn valuable emergency skills, and be part of a tradition of service since 1921. Easton residents 18+ welcome.";
+
+const heroContent = {
+    title: "Become a Volunteer Firefighter",
+    description: "Become Part of a Tradition of Service",
+}
+
+const whyJoinSection = {
+    eyebrow: "WHY JOIN",
+    title: "Serve Your Community in a Vital Way",
+    description: "Become part of a tradition of community service started in 1921. Here's what you'll gain as a volunteer firefighter.",
+    features: [
+        {
+            title: "Meaningful Community Service",
+            description: "Provide emergency services to your neighbors in their time of need.",
+            icon: "heart"
+        },
+        {
+            title: "Valuable Emergency Skills",
+            description: "Learn firefighting, rescue operations, hazmat response, and critical emergency skills.",
+            icon: "academic-cap"
+        },
+        {
+            title: "Strong Camaraderie",
+            description: "Build lifelong friendships with fellow firefighters and get to know your community.",
+            icon: "user-group"
+        },
+        {
+            title: "Personal Growth",
+            description: "Develop leadership, teamwork, and problem-solving abilities under real conditions.",
+            icon: "arrow-trending-up"
+        },
+        {
+            title: "Flexible Participation",
+            description: "Contribute based on your interests and availability. Various commitment levels welcome.",
+            icon: "clock"
+        },
+        {
+            title: "Professional Training",
+            description: "Receive Firefighter I & II certification, EMT training, and continuing education at no cost.",
+            icon: "shield-check"
+        }
+    ]
+}
+
+const requirementsSection = {
+    eyebrow: "ELIGIBILITY",
+    headline: "Requirements to Join",
+    description: "We welcome all qualified Easton residents who want to serve their community. Our requirements ensure that all members can safely and effectively participate in emergency operations.",
+    image: {
+        src: joinImage,
+        alt: "EVFC1 Training"
+    },
+    buttons: []
+}
+
+const applicationSection = {
+    eyebrow: "HOW TO APPLY",
+    title: "Application Process",
+    description: "Joining EVFC1 is straightforward. Follow these simple steps to begin your journey as a volunteer firefighter.",
+    features: [
+        {
+            title: "Meet Basic Requirements",
+            description: "You must be over 18 years old and be a resident of Easton, Connecticut.",
+            icon: "identification"
+        },
+        {
+            title: "Download Application",
+            description: "Download and print the membership application or pick one up at the fire station.",
+            icon: "document-text",
+            link: "/application.pdf",
+            linkText: "Download Application (PDF)",
+            linkTarget: "_self" as const
+        },
+        {
+            title: "Complete & Submit",
+            description: "Fill out the application and bring it with a $5.00 application fee to our monthly meeting (first Monday of each month).",
+            icon: "clipboard-document-check"
+        },
+        {
+            title: "Background Check",
+            description: "All applicants undergo a background check as part of our standard screening process.",
+            icon: "shield-check"
+        }
+    ]
+}
+
+const contactCta = {
+    eyebrow: "QUESTIONS?",
+    title: "Ready to Serve Your Community?",
+    description: "Have questions about joining EVFC1? Contact us at info@evfc1.com or call (203) 268-2833. We'd love to hear from you and answer any questions you may have about becoming a volunteer firefighter.",
+    button: {
+        text: "Contact Us",
+        link: "/contact",
+        variant: "primary" as const,
+        target: "_self" as const
+    }
+}
+
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <InnerHero content={heroContent} />
+    <Features content={whyJoinSection} background="light" padding="base" />
+    <SplitPanel content={requirementsSection} imagePosition="right" background="base" padding="base" />
+    <Features content={applicationSection} background="light" padding="base" iconType="numbered" />
+    <CtaBanner content={contactCta} variant="contained" background="base" paddingBottom="base" />
+</Layout>

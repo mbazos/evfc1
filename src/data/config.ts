@@ -1,21 +1,22 @@
 export const siteConfig = {
-  companyName: 'Titan Core',
-  siteUrl: 'https://titan-core.com',
+  companyName: 'Easton Volunteer Fire Company #1',
+  siteUrl: 'https://evfc1.com',
   Socials: {
-      xSocial: 'https://x.com/astrodotbuild',
-      Github: 'https://github.com/withastro',
-      Instagram: 'https://www.instagram.com/astrodotbuild',
-      LinkedIn: 'https://www.linkedin.com/company/astrodotbuild',
-      Email: 'support@titan-core.com',
-      Phone: '+123 456 7890',
-      Location: '123 Main St, Anytown, USA',
+      xSocial: '',
+      Github: '',
+      Instagram: '',
+      LinkedIn: '',
+      Facebook: 'https://www.facebook.com/EastonVFD/',
+      Email: 'info@evfc1.com',
+      Phone: '(203) 268-2833',
+      Location: '1 Center Road, Easton, CT 06612',
   }
 };
 
 export const SEO = {
   Separator: '|',
-  SiteName: 'Titan Core',
-  defaultDescription: 'A modern, high-performance Astro JS theme',
+  SiteName: 'Easton Volunteer Fire Company #1',
+  defaultDescription: 'Serving our community since 1921. Dedicated volunteer firefighters protecting Easton, Connecticut.',
 };
   
 export const blogSetting = {
@@ -23,5 +24,5 @@ export const blogSetting = {
 }
 
 export const themeSetting = {
-  theme: 'zeus'
+  theme: 'ares'
 }

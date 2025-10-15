@@ -19,26 +19,33 @@ export interface StatsList {
     };
 }
 
+// Calculate years of service dynamically
+const ESTABLISHED_YEAR = 1921;
+const currentYear = new Date().getFullYear();
+const yearsOfService = currentYear - ESTABLISHED_YEAR;
+
 export const statsLists: Record<string, StatsList> = {
     main: {
         id: 'main',
         stats: [
             {
-                value: 10,
-                label: 'Theme Configurations',
+                value: 1921,
+                label: 'Established',
             },
             {
-                value: 11,
-                label: 'Pre-Built Components',
-            },
-            {
-                value: 48,
-                label: 'Team Members',
-            },
-            {
-                value: 500000,
-                label: 'Lines of Code',
+                value: 500,
+                label: 'Annual Emergency Calls',
                 prefix: '+'
+            },
+            {
+                value: 28,
+                label: 'Professional & Volunteer Firefighters',
+                prefix: '+'
+            },
+            {
+                value: 24,
+                label: 'Hours a Day Protection',
+                suffix: '/7'
             }
         ]
     },
@@ -46,23 +53,30 @@ export const statsLists: Record<string, StatsList> = {
         id: 'withContent',
         stats: [
             {
-                value: 10,
-                label: 'Color Schemes',
+                value: 1921,
+                label: 'Established',
             },
             {
-                value: 14.53,
-                label: 'Core Bundle Size',
-                suffix: 'KB'
+                value: 500,
+                label: 'Annual Calls',
+                prefix: '+'
             },
             {
-                value: 11,
-                label: 'Pre-Built Components',
+                value: 4,
+                label: 'Fire Engines',
             },
             {
-                value: 10,
-                label: 'Build Time',
-                prefix: '<100',
-                suffix: 's'
+                value: 1,
+                label: 'Brush Truck',
+            },
+            {
+                value: 8,
+                label: 'Full-Time Firefighters',
+            },
+            {
+                value: yearsOfService,
+                label: 'Years of Service',
+                suffix: ' yrs'
             }
         ]
     }

@@ -1,0 +1,85 @@
+---
+import Layout from '@layouts/Layout.astro';
+import InnerHero from '@components/sections/InnerHero.astro';
+import SplitPanel from '@components/sections/SplitPanel.astro';
+import Features from '@components/sections/Features.astro';
+import Stats from '@components/sections/Stats.astro';
+import { statsLists } from '@data/stats';
+import heroImage from '../assets/images/home/default-hero-2.jpg';
+
+const seoTitle = "About Us | Easton Volunteer Fire Company #1";
+const seoDescription = "Learn about EVFC1's history since 1921. An independent volunteer organization standing ready to protect and assist in the face of fire, flooding, hazmat, and other disasters.";
+
+const heroContent = {
+    title: "About EVFC1",
+    description: "Protecting Easton Since 1921",
+}
+
+const missionSection = {
+    eyebrow: "OUR MISSION",
+    headline: "Standing Ready to Serve",
+    description: "The Easton Volunteer Fire Company stands ready to protect and assist in the face of fire, flooding, hazardous materials, or other modern disasters. As an independent volunteer organization established in 1921, we've been serving our community for over a century with dedication and professionalism.",
+    image: {
+        src: heroImage,
+        alt: "EVFC1 Firefighters"
+    },
+    buttons: []
+}
+
+const capabilitiesSection = {
+    eyebrow: "OUR CAPABILITIES",
+    headline: "Exceptional Equipment & Training",
+    description: "Through active fundraising, careful planning, and prudent management, EVFC1 has achieved remarkable effectiveness. We're noted for having exceptional equipment, highly trained personnel, and outstanding facilities compared to similar-sized community organizations. Our 24/7/365 emergency response service ensures Easton is always protected.",
+    image: {
+        src: heroImage,
+        alt: "EVFC1 Fire Station"
+    },
+    buttons: [
+        {
+            text: "View Our Apparatus",
+            link: "/apparatus",
+            variant: "primary" as const
+        }
+    ]
+}
+
+const organizationalStrengths = {
+    eyebrow: "HOW WE SUCCEED",
+    title: "Our Organizational Strengths",
+    description: "The Easton Volunteer Fire Company has achieved effectiveness through our commitment to excellence in every aspect of our operations.",
+    features: [
+        {
+            title: "Active Fundraising",
+            description: "Through community events like our annual carnival and generous donations, we maintain the funding necessary to provide top-tier emergency services.",
+            icon: "currency-dollar"
+        },
+        {
+            title: "Careful Planning",
+            description: "Strategic planning ensures we're prepared for current and future challenges, with equipment and training that meets the highest standards.",
+            icon: "clipboard-document-list"
+        },
+        {
+            title: "Prudent Management",
+            description: "Responsible stewardship of resources allows us to maximize the impact of every dollar, ensuring the best possible service for Easton.",
+            icon: "chart-bar"
+        }
+    ]
+}
+
+const statsSection = {
+    eyebrow: "BY THE NUMBERS",
+    title: "Our Legacy of Service",
+    description: "These numbers reflect our commitment to protecting Easton with professionalism and dedication.",
+    variant: 'grid' as const,
+    stats: statsLists.withContent.stats
+}
+
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <InnerHero content={heroContent} />
+    <SplitPanel content={missionSection} imagePosition="right" background="light" padding="base" />
+    <Features content={organizationalStrengths} background="base" padding="base" />
+    <SplitPanel content={capabilitiesSection} imagePosition="left" background="light" padding="base" />
+    <Stats content={statsSection} background='dark' padding="base"/>
+</Layout>

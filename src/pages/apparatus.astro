@@ -1,0 +1,152 @@
+---
+import Layout from '@layouts/Layout.astro';
+import InnerHero from '@components/sections/InnerHero.astro';
+import engine11 from '../assets/images/apparatus/engine-1-1.jpg';
+import engine12 from '../assets/images/apparatus/engine-1-2.jpg';
+import engine13 from '../assets/images/apparatus/engine-1-3.jpg';
+import engine21 from '../assets/images/apparatus/engine-2-1.jpg';
+import engine22 from '../assets/images/apparatus/engine-2-2.jpg';
+import engine23 from '../assets/images/apparatus/engine-2-3.jpg';
+import engine31 from '../assets/images/apparatus/engine-3-1.jpg';
+import engine32 from '../assets/images/apparatus/engine-3-2.jpg';
+import engine33 from '../assets/images/apparatus/engine-3-3.jpg';
+import engine41 from '../assets/images/apparatus/engine-4-1.jpg';
+import engine42 from '../assets/images/apparatus/engine-4-2.jpg';
+import engine43 from '../assets/images/apparatus/engine-4-3.jpg';
+
+const seoTitle = "Our Apparatus | Easton Volunteer Fire Company #1";
+const seoDescription = "Explore EVFC1's fleet of modern fire apparatus. Four engines equipped for structure fires, rescue operations, water supply, and specialized emergencies.";
+
+const heroContent = {
+    title: "Our Apparatus",
+    description: "State-of-the-Art Equipment Ready to Serve",
+}
+
+const apparatus = [
+    {
+        name: "Engine 4",
+        type: "Pierce 'Dash'",
+        year: 1996,
+        images: [engine41, engine42, engine43],
+        specs: [
+            { label: "Water Tank", value: "1000 gallons" },
+            { label: "Pump Capacity", value: "1500 GPM" },
+            { label: "Hose", value: "1500 ft 5\" supply, 500 ft 2.5\" hose, 2x200 ft 1.75\" pre-connect" },
+            { label: "Seating", value: "6 firefighters" }
+        ],
+        primaryFunction: "First due to structure fires",
+        notes: "Planned replacement in 2020 with Marion Body Works engine"
+    },
+    {
+        name: "Engine 3",
+        type: "Pierce 'Puck'",
+        year: 2012,
+        images: [engine31, engine32, engine33],
+        specs: [
+            { label: "Water Tank", value: "960 gallons" },
+            { label: "Pump Capacity", value: "1500 GPM" },
+            { label: "Hose", value: "1500 ft 5\" supply, 500 ft 2.5\" hose, 2x200 ft 1.75\" crosslays" },
+            { label: "Seating", value: "4 firefighters" }
+        ],
+        primaryFunction: "Automobile rescue, medical, hazardous materials",
+        notes: "Built-in rescue tools"
+    },
+    {
+        name: "Engine 1",
+        type: "American La France 'Eagle'",
+        year: 2001,
+        images: [engine11, engine12, engine13],
+        specs: [
+            { label: "Water Tank", value: "1000 gallons" },
+            { label: "Pump Capacity", value: "1500 GPM" },
+            { label: "Hose", value: "3000 ft 5\" supply, 500 ft 2.5\" hose, 2x200 ft 1.75\" crosslays" },
+            { label: "Seating", value: "6 firefighters" }
+        ],
+        primaryFunction: "Water supply, mutual aid",
+        notes: ""
+    },
+    {
+        name: "Engine 2",
+        type: "E1/International Chassis 4x4",
+        year: 2004,
+        images: [engine21, engine22, engine23],
+        specs: [
+            { label: "Water Tank", value: "330 gallons" },
+            { label: "Pump Capacity", value: "1250 GPM" },
+            { label: "Hose", value: "500 ft 5\" hose, 250 ft 2.5\" hose, 400 ft 1.75\" hose, 1000 ft forestry hose" },
+            { label: "Seating", value: "2 firefighters" }
+        ],
+        primaryFunction: "Brush fires, cold water/ice rescue",
+        notes: "4x4 capability for off-road access"
+    }
+];
+
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <InnerHero content={heroContent} />
+
+    <section class="bg-background-light pt-base pb-base">
+        <div class="site-container px-4">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h2 class="text-headline-light" data-aos="fade-up">
+                    Our Fleet
+                </h2>
+                <p class="mt-4 text-body-light opacity-90" data-aos="fade-up" data-aos-delay="100">
+                    We maintain four modern fire engines, each equipped for specific emergency situations. Our apparatus ensures we're ready to respond to any call, from structure fires to specialized rescue operations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {apparatus.map((vehicle, index) => (
+                    <div
+                        class="bg-background/90 rounded-lg border border-black overflow-hidden"
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                    >
+                        <div class="grid grid-cols-3 gap-2 p-2">
+                            {vehicle.images.map((img, imgIndex) => (
+                                <div class="aspect-[4/3] overflow-hidden max-h-16">
+                                    <img
+                                        src={img.src}
+                                        alt={`${vehicle.name} - ${vehicle.type} - View ${imgIndex + 1}`}
+                                        class="w-full h-full object-contain"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+
+                        <div class="p-6">
+                            <div class="flex items-baseline justify-between mb-4">
+                                <h3 class="text-h3 text-headline-light">{vehicle.name}</h3>
+                                <span class="text-sm text-body-light opacity-75">{vehicle.year}</span>
+                            </div>
+
+                            <p class="text-lg font-semibold text-primary mb-4">{vehicle.type}</p>
+
+                            <div class="space-y-2 mb-4">
+                                {vehicle.specs.map(spec => (
+                                    <div class="flex justify-between text-sm border-b border-background-light pb-2">
+                                        <span class="font-semibold text-body-light">{spec.label}:</span>
+                                        <span class="text-body-light opacity-90 text-right ml-4">{spec.value}</span>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div class="mt-4 pt-4 border-t border-background-light">
+                                <p class="text-sm font-semibold text-body-light mb-1">Primary Function:</p>
+                                <p class="text-base text-body-light opacity-90">{vehicle.primaryFunction}</p>
+                            </div>
+
+                            {vehicle.notes && (
+                                <div class="mt-3 p-3 bg-primary/10 rounded">
+                                    <p class="text-sm text-body-light opacity-90">{vehicle.notes}</p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+</Layout>
