@@ -559,7 +559,7 @@ body {
 }
 
 .hero-background {
-    background: var(--color-primary);
+    background: #474747;
 }
 
 /* Style the pre element containing the code */

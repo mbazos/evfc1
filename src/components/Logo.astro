@@ -9,7 +9,7 @@ const { variant = 'header' } = Astro.props;
 const getLogoSize = () => {
     switch (variant) {
         case 'header':
-            return 'h-12 md:h-14';
+            return 'h-28 md:h-32';
         case 'footer':
             return 'h-10 md:h-12';
         case 'dark':
@@ -20,7 +20,10 @@ const getLogoSize = () => {
 };
 ---
 
-<a href="/" class="logo transition-opacity duration-200 hover:opacity-80 flex items-center">
+<a href="/" class:list={[
+    "logo transition-opacity duration-200 hover:opacity-80 flex items-center",
+    variant === 'header' ? 'relative -my-8 md:-my-10 z-10' : ''
+]}>
     <img
         src="/logo.png"
         alt="Easton Volunteer Fire Company #1"

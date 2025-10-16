@@ -1,0 +1,96 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/sections/Hero.astro';
+import Features from '@components/sections/Features.astro';
+import SplitPanel from '@components/sections/SplitPanel.astro';
+import { siteConfig } from '@data/config';
+import carnivalImage from '../assets/images/carnival/slide-carnival.jpg';
+import pirateShipImage from '../assets/images/carnival/pirate-ship.jpg';
+
+const seoTitle = "Annual Carnival | Easton Volunteer Fire Company #1";
+const seoDescription = "Join us for the EVFC1 Annual Carnival! A beloved community tradition held each summer with rides, games, food, and family fun supporting our volunteer fire company.";
+
+const heroContent = {
+    title: 'Annual Carnival',
+    description: 'A Community Tradition',
+    buttons: [
+        {
+            text: 'Visit Our Facebook',
+            link: siteConfig.Socials.Facebook,
+            target: '_blank',
+            variant: 'primary' as const
+        }
+    ],
+    backgroundImage: carnivalImage,
+    overlayOpacity: 0.3
+}
+
+const carnivalInfo = {
+    eyebrow: "ANNUAL FUNDRAISER",
+    headline: "Support Your Local Fire Company",
+    description: "The Annual Carnival is typically held at the end of July into early August each year. This beloved community event features rides, games, bingo, delicious food, and family entertainment. All proceeds support our fire company's operations, equipment purchases, and training programs. For exact dates and the latest announcements, please visit our Facebook page.",
+    image: {
+        src: pirateShipImage,
+        alt: "EVFC1 Annual Carnival Rides"
+    },
+    buttons: [
+        {
+            text: "Follow Us on Facebook",
+            link: siteConfig.Socials.Facebook,
+            variant: "primary" as const,
+            target: "_blank" as const
+        }
+    ]
+}
+
+const carnivalFeatures = {
+    eyebrow: "WHAT TO EXPECT",
+    title: "Family Fun for Everyone",
+    description: "Our annual carnival brings the community together for a week of entertainment and fundraising that supports our mission to protect Easton.",
+    features: [
+        {
+            title: "Rides",
+            description: "Fun rides for all ages.",
+            icon: "users"
+        },
+        {
+            title: "Games & Prizes",
+            description: "Classic carnival games where you can test your skills and win prizes for the whole family.",
+            icon: "trophy"
+        },
+        {
+            title: "Food & Refreshments",
+            description: "Delicious carnival favorites including fried dough, cotton candy, burgers, and more.",
+            icon: "sparkles"
+        },
+        {
+            title: "Bingo",
+            description: "Fast, fun and a great time! Join us for exciting bingo games with prizes.",
+            icon: "grid-3x3"
+        },
+        {
+            title: "Community Spirit",
+            description: "Connect with neighbors and support your local volunteer fire company while enjoying great entertainment.",
+            icon: "heart"
+        }
+    ]
+}
+
+const FooterCta = {
+    eyebrow: "Stay Updated",
+    title: 'Get the Latest Carnival News',
+    description: 'Follow us on Facebook for announcements about carnival dates, special events, entertainment schedules, and more. Be the first to know when tickets and ride passes go on sale!',
+    hideCta: false,
+    button: {
+        text: 'Follow on Facebook',
+        link: siteConfig.Socials.Facebook,
+        target: '_blank'
+    }
+}
+---
+
+<Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
+    <Hero content={heroContent} />
+    <SplitPanel content={carnivalInfo} imagePosition="right" background="light" padding="base" />
+    <Features content={carnivalFeatures} padding="base" background="base" />
+</Layout>

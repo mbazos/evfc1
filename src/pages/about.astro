@@ -3,15 +3,14 @@ import Layout from '@layouts/Layout.astro';
 import InnerHero from '@components/sections/InnerHero.astro';
 import SplitPanel from '@components/sections/SplitPanel.astro';
 import Features from '@components/sections/Features.astro';
-import Stats from '@components/sections/Stats.astro';
-import { statsLists } from '@data/stats';
-import heroImage from '../assets/images/home/default-hero-2.jpg';
+import membersImage from '../assets/images/about/members.jpg';
+import stationImage from '../assets/images/about/station.jpg';
 
 const seoTitle = "About Us | Easton Volunteer Fire Company #1";
 const seoDescription = "Learn about EVFC1's history since 1921. An independent volunteer organization standing ready to protect and assist in the face of fire, flooding, hazmat, and other disasters.";
 
 const heroContent = {
-    title: "About EVFC1",
+    title: "About Us",
     description: "Protecting Easton Since 1921",
 }
 
@@ -20,18 +19,25 @@ const missionSection = {
     headline: "Standing Ready to Serve",
     description: "The Easton Volunteer Fire Company stands ready to protect and assist in the face of fire, flooding, hazardous materials, or other modern disasters. As an independent volunteer organization established in 1921, we've been serving our community for over a century with dedication and professionalism.",
     image: {
-        src: heroImage,
+        src: membersImage,
         alt: "EVFC1 Firefighters"
     },
-    buttons: []
+    buttons: [
+        {
+            text: "Read Our History (PDF)",
+            link: "/history.pdf",
+            variant: "primary" as const,
+            target: "_blank" as const
+        }
+    ]
 }
 
 const capabilitiesSection = {
     eyebrow: "OUR CAPABILITIES",
     headline: "Exceptional Equipment & Training",
-    description: "Through active fundraising, careful planning, and prudent management, EVFC1 has achieved remarkable effectiveness. We're noted for having exceptional equipment, highly trained personnel, and outstanding facilities compared to similar-sized community organizations. Our 24/7/365 emergency response service ensures Easton is always protected.",
+    description: "Through active fundraising, careful planning, and prudent management, Easton Volunteer Fire Company has achieved remarkable effectiveness. We're noted for having exceptional equipment, highly trained personnel, and outstanding facilities compared to similar-sized community organizations. Our 24/7/365 emergency response service ensures Easton is always protected.",
     image: {
-        src: heroImage,
+        src: stationImage,
         alt: "EVFC1 Fire Station"
     },
     buttons: [
@@ -66,14 +72,6 @@ const organizationalStrengths = {
     ]
 }
 
-const statsSection = {
-    eyebrow: "BY THE NUMBERS",
-    title: "Our Legacy of Service",
-    description: "These numbers reflect our commitment to protecting Easton with professionalism and dedication.",
-    variant: 'grid' as const,
-    stats: statsLists.withContent.stats
-}
-
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -81,5 +79,4 @@ const statsSection = {
     <SplitPanel content={missionSection} imagePosition="right" background="light" padding="base" />
     <Features content={organizationalStrengths} background="base" padding="base" />
     <SplitPanel content={capabilitiesSection} imagePosition="left" background="light" padding="base" />
-    <Stats content={statsSection} background='dark' padding="base"/>
 </Layout>

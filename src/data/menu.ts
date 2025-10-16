@@ -7,14 +7,17 @@ export const headerMenu = [
     { name: 'Members', link: '/members' },
     { name: 'Join', link: '/join' },
     { name: 'Donate', link: '/donate' },
-    { name: 'Carnival', link: '/carnival' },
-    { name: 'Contact', link: '/contact' }
+    { name: 'Carnival', link: '/carnival' }
 ];
 
 export const footerMenu = [
+    { name: 'Home', link: '/' },
     { name: 'About', link: '/about' },
-    { name: 'Join Us', link: '/join' },
+    { name: 'Apparatus', link: '/apparatus' },
+    { name: 'Members', link: '/members' },
+    { name: 'Join', link: '/join' },
     { name: 'Donate', link: '/donate' },
+    { name: 'Carnival', link: '/carnival' },
     { name: 'Contact', link: '/contact' },
 ];
 

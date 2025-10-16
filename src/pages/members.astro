@@ -1,0 +1,224 @@
+---
+import Layout from '@layouts/Layout.astro';
+import InnerHero from '@components/sections/InnerHero.astro';
+import { Image } from 'astro:assets';
+import robertKlemImg from '../assets/images/members/robert-klem.jpg';
+import stevenWaughImg from '../assets/images/members/steven-waugh.jpg';
+import martinOhradanImg from '../assets/images/members/martin-ohradan.jpg';
+import markMirowskiImg from '../assets/images/members/mark-mirowski.jpg';
+import daveDavisImg from '../assets/images/members/dave-davis.jpg';
+import michaelSabiaImg from '../assets/images/members/michael-sabia.jpg';
+import jonDavisImg from '../assets/images/members/jon-davis.jpg';
+import danMagnerImg from '../assets/images/members/dan-magner.jpg';
+import alexCohenImg from '../assets/images/members/alex-cohen.jpg';
+
+const seoTitle = "Our Team | Easton Volunteer Fire Company #1";
+const seoDescription = "Meet the dedicated career firefighters of EVFC1. Our team of professionals provides 24/7 emergency response to protect Easton, Connecticut.";
+
+const heroContent = {
+    title: "Our Team",
+    description: "Dedicated Professionals Serving Easton",
+}
+
+const currentYear = new Date().getFullYear();
+
+const leadership = [
+    {
+        name: "Robert Klem",
+        title: "Chief",
+        type: "Volunteer",
+        joined: 2016,
+        image: robertKlemImg,
+        certifications: ["Firefighter I", "HazMat Awareness", "HazMat Operational", "Q Endorsement-Driver", "Pump Operator", "Fire Fighter II", "Fire Instructor I", "Fire Officer I", "EMR"]
+    },
+    {
+        name: "Steven Waugh",
+        title: "1st Assistant Chief",
+        type: "Volunteer",
+        joined: 2000,
+        image: stevenWaughImg,
+        certifications: ["Firefighter I", "HazMat Awareness", "HazMat Operational", "Q Endorsement-Driver", "Pump Operator", "Fire Fighter II", "Fire Instructor I", "EMR"]
+    }
+];
+
+const members = [
+    {
+        name: "Martin Ohradan",
+        title: "Career Firefighter",
+        joined: 1985,
+        image: martinOhradanImg,
+        certifications: ["CT Fire Academy", "Firefighter I", "HazMat Awareness", "Q Endorsement-Driver", "Pump Operator", "Fire Fighter II", "EMT"]
+    },
+    {
+        name: "Mark Mirowski",
+        title: "Career Firefighter",
+        joined: 1999,
+        image: markMirowskiImg,
+        certifications: ["CT Fire Academy", "Firefighter I", "Fire Instructor I", "EMT"]
+    },
+    {
+        name: "Dave Davis",
+        title: "Career Firefighter",
+        joined: 2000,
+        image: daveDavisImg,
+        certifications: ["CT Fire Academy", "Firefighter I", "HazMat Technician", "EMT"]
+    },
+    {
+        name: "Michael Sabia",
+        title: "Career Firefighter",
+        joined: 2003,
+        image: michaelSabiaImg,
+        certifications: ["CT Fire Academy", "Firefighter I", "HazMat Awareness", "Q Endorsement-Driver", "Pump Operator", "Fire Fighter II", "EMT"]
+    },
+    {
+        name: "Jon Davis",
+        title: "Career Firefighter",
+        joined: 2006,
+        image: jonDavisImg,
+        certifications: ["CT Fire Academy", "Firefighter I", "HazMat Awareness", "Q Endorsement-Driver", "Pump Operator", "EMT"]
+    },
+    {
+        name: "Dan Magner",
+        title: "Career Firefighter",
+        joined: 2006,
+        image: danMagnerImg,
+        certifications: ["CT Fire Academy", "Firefighter I", "HazMat Awareness", "Q Endorsement-Driver", "Pump Operator", "EMT"]
+    },
+    {
+        name: "Alex Cohen",
+        title: "Career Firefighter",
+        joined: 2016,
+        image: alexCohenImg,
+        certifications: ["Firefighter I", "HazMat Awareness", "HazMat Operational", "Q Endorsement-Driver", "Pump Operator", "EMR"]
+    }
+];
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <InnerHero content={heroContent} />
+
+    <section class="bg-background-light pt-base pb-small">
+        <div class="site-container px-4">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h2 class="text-headline-light" data-aos="fade-up">
+                    Volunteer Leadership
+                </h2>
+                <p class="mt-4 text-body-light opacity-90" data-aos="fade-up" data-aos-delay="100">
+                    Our volunteer leadership oversees all operations and strategic planning for the Easton Volunteer Fire Company, ensuring the organization remains prepared and effective in serving the community.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                {leadership.map((member, index) => (
+                    <div
+                        class="bg-background rounded-lg border border-black overflow-hidden"
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                    >
+                        <div class="aspect-square overflow-hidden">
+                            <Image
+                                src={member.image}
+                                alt={member.name}
+                                class="w-full h-full object-cover"
+                                width={400}
+                                height={400}
+                                format="webp"
+                                quality={80}
+                            />
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-h3 text-headline-light mb-2">{member.name}</h3>
+                            <p class="text-lg font-semibold text-primary mb-4">{member.title}</p>
+
+                            <div class="mb-4 pb-4 border-b border-background-light space-y-1">
+                                <p class="text-sm text-body-light">
+                                    <span class="font-semibold">Type:</span> {member.type}
+                                </p>
+                                <p class="text-sm text-body-light">
+                                    <span class="font-semibold">Joined:</span> {member.joined}
+                                </p>
+                                <p class="text-sm text-body-light">
+                                    <span class="font-semibold">Years of Service:</span> {currentYear - member.joined} years
+                                </p>
+                            </div>
+
+                            <div>
+                                <p class="text-sm font-semibold text-body-light mb-2">Certifications:</p>
+                                <ul class="space-y-1">
+                                    {member.certifications.map(cert => (
+                                        <li class="text-sm text-body-light opacity-90 flex items-start">
+                                            <span class="text-primary mr-2">•</span>
+                                            <span>{cert}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-background-light pt-small pb-base">
+        <div class="site-container px-4">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h2 class="text-headline-light" data-aos="fade-up">
+                    Career Firefighters
+                </h2>
+                <p class="mt-4 text-body-light opacity-90" data-aos="fade-up" data-aos-delay="100">
+                    Our career firefighters are highly trained professionals who staff the station 24/7/365, ensuring Easton is always protected. Each member brings years of experience and specialized training to serve our community.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {members.map((member, index) => (
+                    <div
+                        class="bg-background rounded-lg border border-black overflow-hidden"
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                    >
+                        <div class="aspect-square overflow-hidden">
+                            <Image
+                                src={member.image}
+                                alt={member.name}
+                                class="w-full h-full object-cover"
+                                width={400}
+                                height={400}
+                                format="webp"
+                                quality={80}
+                            />
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-h3 text-headline-light mb-2">{member.name}</h3>
+                            <p class="text-lg font-semibold text-primary mb-4">{member.title}</p>
+
+                            <div class="mb-4 pb-4 border-b border-background-light space-y-1">
+                                <p class="text-sm text-body-light">
+                                    <span class="font-semibold">Joined:</span> {member.joined}
+                                </p>
+                                <p class="text-sm text-body-light">
+                                    <span class="font-semibold">Years of Service:</span> {currentYear - member.joined} years
+                                </p>
+                            </div>
+
+                            <div>
+                                <p class="text-sm font-semibold text-body-light mb-2">Certifications:</p>
+                                <ul class="space-y-1">
+                                    {member.certifications.map(cert => (
+                                        <li class="text-sm text-body-light opacity-90 flex items-start">
+                                            <span class="text-primary mr-2">•</span>
+                                            <span>{cert}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+</Layout>

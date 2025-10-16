@@ -1,15 +1,112 @@
 ---
-import Layout from "@layouts/Layout.astro"
-import InnerHero from "@components/sections/InnerHero.astro"
-import ContactInfo from "@components/sections/ContactInfo.astro"
+import Layout from '@layouts/Layout.astro';
+import InnerHero from '@components/sections/InnerHero.astro';
+import { siteConfig } from '@data/config';
+import { Mail, Phone, MapPin, Facebook } from 'lucide-astro';
+import firehouseImage from '../../assets/images/contact/firehouse.jpg';
+
+const seoTitle = "Contact Us | Easton Volunteer Fire Company #1";
+const seoDescription = "Get in touch with EVFC1. For emergencies dial 911. For non-emergency inquiries, contact us by phone, email, or visit our station at 1 Center Road, Easton, CT.";
 
 const heroContent = {
     title: "Contact Us",
-    description: "Contact us for more information"
+    description: "We're Here to Help",
 }
 ---
 
-<Layout title="Contact Us" description="Contact us for more information">
+<Layout title={seoTitle} description={seoDescription}>
     <InnerHero content={heroContent} />
-    <ContactInfo background="base" padding="base" />
+
+    <section class="bg-background-light pt-base pb-base">
+        <div class="site-container px-4">
+            <!-- Emergency Notice -->
+            <div class="bg-primary text-white p-6 rounded-lg mb-12 text-center" data-aos="fade-up">
+                <h2 class="text-h2 mb-2">Emergency? Call 911</h2>
+                <p class="text-lg">For all fire, medical, and emergency situations, always dial 911 first.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- Contact Information -->
+                <div data-aos="fade-up">
+                    <h2 class="text-h2 text-headline-light mb-6">Get In Touch</h2>
+                    <p class="text-body-light mb-8">
+                        Have questions about joining, requesting information, or other non-emergency matters? We'd love to hear from you.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary text-white p-3 rounded-lg flex-shrink-0">
+                                <MapPin size={24} />
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-headline-light mb-1">Address</h3>
+                                <a
+                                    href={`https://maps.google.com/?q=${encodeURIComponent(siteConfig.Socials.Location)}`}
+                                    target="_blank"
+                                    class="text-body-light hover:text-primary transition-colors"
+                                >
+                                    {siteConfig.Socials.Location}
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary text-white p-3 rounded-lg flex-shrink-0">
+                                <Phone size={24} />
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-headline-light mb-1">Phone</h3>
+                                <a
+                                    href={`tel:${siteConfig.Socials.Phone}`}
+                                    class="text-body-light hover:text-primary transition-colors"
+                                >
+                                    {siteConfig.Socials.Phone}
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary text-white p-3 rounded-lg flex-shrink-0">
+                                <Mail size={24} />
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-headline-light mb-1">Email</h3>
+                                <a
+                                    href={`mailto:${siteConfig.Socials.Email}`}
+                                    class="text-body-light hover:text-primary transition-colors"
+                                >
+                                    {siteConfig.Socials.Email}
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="bg-primary text-white p-3 rounded-lg flex-shrink-0">
+                                <Facebook size={24} />
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-headline-light mb-1">Facebook</h3>
+                                <a
+                                    href={siteConfig.Socials.Facebook}
+                                    target="_blank"
+                                    class="text-body-light hover:text-primary transition-colors"
+                                >
+                                    Follow us on Facebook
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Firehouse Image -->
+                    <div class="mt-8 rounded-lg overflow-hidden">
+                        <img
+                            src={firehouseImage.src}
+                            alt="Easton Volunteer Fire Company #1 Firehouse"
+                            class="w-full h-auto object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </Layout>
