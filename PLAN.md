@@ -1,4 +1,4 @@
-# Website Rebuild Plan: EVFC1.com
+# Website Rebuild Plan: Easton Volunteer Fire Company.com
 
 ## Project Overview
 
@@ -27,7 +27,7 @@ Rebuild the **Easton Volunteer Fire Company #1** website (https://evfc1.com/) us
 - [ ] Review project structure and familiarize with component organization
 
 ### 1.2 Base Configuration
-- [ ] Update `src/data/config.ts` with EVFC1 site information
+- [ ] Update `src/data/config.ts` with Easton Volunteer Fire Company site information
   - Site title: "Easton Volunteer Fire Company #1"
   - Tagline: "Serving Our Community Since 1921"
   - Contact information
@@ -124,7 +124,7 @@ Rebuild the **Easton Volunteer Fire Company #1** website (https://evfc1.com/) us
 ### 3.2 About Page (`src/pages/about.astro`)
 
 **Content Structure:**
-- [ ] Hero section with "About EVFC1" heading
+- [ ] Hero section with "About Easton Volunteer Fire Company" heading
 - [ ] History section
   - Founded in 1921
   - Historical milestones
@@ -217,7 +217,7 @@ Rebuild the **Easton Volunteer Fire Company #1** website (https://evfc1.com/) us
 ### 3.6 Donate Page (`src/pages/donate.astro`)
 
 **Content Sections:**
-- [ ] Hero section: "Support EVFC1"
+- [ ] Hero section: "Support Easton Volunteer Fire Company"
 - [ ] Impact section
   - How donations are used
   - Equipment purchases
@@ -540,5 +540,5 @@ The project will be considered successful when:
 
 **Document Version:** 1.0
 **Last Updated:** October 14, 2025
-**Project:** EVFC1.com Website Rebuild
+**Project:** evfc1.com Website Rebuild
 **Template:** Titan Core (Astro + TailwindCSS)

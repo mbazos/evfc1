@@ -1,4 +1,4 @@
-# EVFC1 Content Inventory - COMPLETE
+# Easton Volunteer Fire Company Content Inventory - COMPLETE
 
 *Last Updated: October 14, 2025*
 *Status: Phase 2 Complete - All content extracted from evfc1.com*
