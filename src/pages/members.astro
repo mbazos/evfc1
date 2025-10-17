@@ -4,6 +4,10 @@ import InnerHero from '@components/sections/InnerHero.astro';
 import { Image } from 'astro:assets';
 import robertKlemImg from '../assets/images/members/robert-klem.jpg';
 import stevenWaughImg from '../assets/images/members/steven-waugh.jpg';
+import carlCevaImg from '../assets/images/members/carl-ceva.jpg';
+import jasonKushnerImg from '../assets/images/members/jason-kushner.jpg';
+import stephenOhradanImg from '../assets/images/members/stephen-ohradan.jpg';
+import edKonstantinoImg from '../assets/images/members/ed-konstantino.jpg';
 import martinOhradanImg from '../assets/images/members/martin-ohradan.jpg';
 import markMirowskiImg from '../assets/images/members/mark-mirowski.jpg';
 import daveDavisImg from '../assets/images/members/dave-davis.jpg';
@@ -11,6 +15,9 @@ import michaelSabiaImg from '../assets/images/members/michael-sabia.jpg';
 import jonDavisImg from '../assets/images/members/jon-davis.jpg';
 import danMagnerImg from '../assets/images/members/dan-magner.jpg';
 import alexCohenImg from '../assets/images/members/alex-cohen.jpg';
+import fredKrumeichImg from '../assets/images/members/fred-krumeich.jpg';
+import davidWheatleyImg from '../assets/images/members/david-wheatley.jpg';
+import lucyCrossmanImg from '../assets/images/members/lucy-crossman.jpg';
 
 const seoTitle = "Our Team | Easton Volunteer Fire Company #1";
 const seoDescription = "Meet the dedicated career firefighters of Easton Volunteer Fire Company. Our team of professionals provides 24/7 emergency response to protect Easton, Connecticut.";
@@ -38,6 +45,38 @@ const leadership = [
         joined: 2000,
         image: stevenWaughImg,
         certifications: ["Firefighter I", "HazMat Awareness", "HazMat Operational", "Q Endorsement-Driver", "Pump Operator", "Fire Fighter II", "Fire Instructor I", "EMR"]
+    },
+    {
+        name: "Carl Ceva",
+        title: "Captain",
+        type: "Volunteer",
+        joined: 2007,
+        image: carlCevaImg,
+        certifications: ["Firefighter I", "Fire Fighter II", "Q Endorsement-Driver", "Pump Operator", "HazMat Awareness", "HazMat Operational", "EMR"]
+    },
+    {
+        name: "Jason Kushner",
+        title: "Captain",
+        type: "Volunteer",
+        joined: 2002,
+        image: jasonKushnerImg,
+        certifications: ["Firefighter I", "Fire Fighter II", "Q Endorsement-Driver", "Pump Operator", "HazMat Awareness", "HazMat Operational"]
+    },
+    {
+        name: "Stephen Ohradan",
+        title: "Lieutenant",
+        type: "Volunteer",
+        joined: 2013,
+        image: stephenOhradanImg,
+        certifications: ["Firefighter I", "Fire Fighter II", "Q Endorsement-Driver", "Pump Operator", "HazMat Awareness", "HazMat Operational", "Fire Instructor I", "EMR"]
+    },
+    {
+        name: "Ed Konstantino",
+        title: "Lieutenant",
+        type: "Volunteer",
+        joined: 2019,
+        image: edKonstantinoImg,
+        certifications: ["Firefighter I", "Fire Fighter II", "Q Endorsement-Driver", "Pump Operator", "HazMat Awareness", "HazMat Operational"]
     }
 ];
 
@@ -92,6 +131,57 @@ const members = [
         certifications: ["Firefighter I", "HazMat Awareness", "HazMat Operational", "Q Endorsement-Driver", "Pump Operator", "EMR"]
     }
 ];
+
+const administration = [
+    {
+        name: "Fred Krumeich",
+        title: "President",
+        type: "Administration",
+        joined: 2022,
+        image: fredKrumeichImg,
+        certifications: ["Firefighter I", "HazMat Awareness", "Q Endorsement-Driver"]
+    },
+    {
+        name: "David Wheatley",
+        title: "Vice President",
+        type: "Administration",
+        joined: 2013,
+        image: davidWheatleyImg,
+        certifications: ["Firefighter I", "Fire Fighter II", "HazMat Awareness", "HazMat Operational", "Q Endorsement-Driver", "Pump Operator", "EMR"]
+    },
+    {
+        name: "Carl Ceva",
+        title: "Treasurer",
+        type: "Administration",
+        joined: 2007,
+        image: carlCevaImg,
+        certifications: ["Firefighter I", "Fire Fighter II", "Q Endorsement-Driver", "Pump Operator", "HazMat Awareness", "HazMat Operational", "EMR"]
+    },
+    {
+        name: "Lucy Crossman",
+        title: "Membership",
+        type: "Administration",
+        joined: 1985,
+        image: lucyCrossmanImg,
+        certifications: ["Firefighter I", "HazMat Awareness", "HazMat Operational", "Fire Marshall"]
+    },
+    {
+        name: "Lauren Park",
+        title: "Assistant Treasurer",
+        type: "Administration",
+        joined: 2022,
+        image: fredKrumeichImg,
+        certifications: ["Firefighter I", "HazMat Awareness", "HazMat Operational"]
+    },
+    {
+        name: "Rob Ollendorff",
+        title: "Public Relations",
+        type: "Administration",
+        joined: 2022,
+        image: fredKrumeichImg,
+        certifications: ["Firefighter I", "HazMat Awareness", "HazMat Operational"]
+    }
+];
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -104,7 +194,7 @@ const members = [
                     Volunteer Leadership
                 </h2>
                 <p class="mt-4 text-body-light opacity-90" data-aos="fade-up" data-aos-delay="100">
-                    Our volunteer leadership oversees all operations and strategic planning for the Easton Volunteer Fire Company, ensuring the organization remains prepared and effective in serving the community.
+                    Our volunteer leadership oversees all operations and strategic planning for the Easton Volunteer Fire Company, ensuring the organization remains prepared and effective in serving the community. Leadership positions are voted on annually by the membership.
                 </p>
             </div>
 
@@ -196,6 +286,70 @@ const members = [
                             <p class="text-lg font-semibold text-primary mb-4">{member.title}</p>
 
                             <div class="mb-4 pb-4 border-b border-background-light space-y-1">
+                                <p class="text-sm text-body-light">
+                                    <span class="font-semibold">Joined:</span> {member.joined}
+                                </p>
+                                <p class="text-sm text-body-light">
+                                    <span class="font-semibold">Years of Service:</span> {currentYear - member.joined} years
+                                </p>
+                            </div>
+
+                            <div>
+                                <p class="text-sm font-semibold text-body-light mb-2">Certifications:</p>
+                                <ul class="space-y-1">
+                                    {member.certifications.map(cert => (
+                                        <li class="text-sm text-body-light opacity-90 flex items-start">
+                                            <span class="text-primary mr-2">•</span>
+                                            <span>{cert}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-background-light pt-small pb-base">
+        <div class="site-container px-4">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h2 class="text-headline-light" data-aos="fade-up">
+                    Administration
+                </h2>
+                <p class="mt-4 text-body-light opacity-90" data-aos="fade-up" data-aos-delay="100">
+                    Our administrative team manages the organizational and business operations of the Easton Volunteer Fire Company, ensuring smooth operations and community engagement.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {administration.map((member, index) => (
+                    <div
+                        class="bg-background rounded-lg border border-black overflow-hidden"
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                    >
+                        <div class="aspect-square overflow-hidden">
+                            <Image
+                                src={member.image}
+                                alt={member.name}
+                                class="w-full h-full object-cover"
+                                width={400}
+                                height={400}
+                                format="webp"
+                                quality={80}
+                            />
+                        </div>
+
+                        <div class="p-6">
+                            <h3 class="text-h3 text-headline-light mb-2">{member.name}</h3>
+                            <p class="text-lg font-semibold text-primary mb-4">{member.title}</p>
+
+                            <div class="mb-4 pb-4 border-b border-background-light space-y-1">
+                                <p class="text-sm text-body-light">
+                                    <span class="font-semibold">Type:</span> {member.type}
+                                </p>
                                 <p class="text-sm text-body-light">
                                     <span class="font-semibold">Joined:</span> {member.joined}
                                 </p>
