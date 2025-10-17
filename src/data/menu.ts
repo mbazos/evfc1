@@ -20,9 +20,3 @@ export const footerMenu = [
     { name: 'Carnival', link: '/carnival' },
     { name: 'Contact', link: '/contact' },
 ];
-
-export const legalMenu = [
-    { name: 'Privacy Policy', link: '/legal/privacy-policy' },
-    { name: 'Terms of Service', link: '/legal/terms-of-service' }
-];
-
