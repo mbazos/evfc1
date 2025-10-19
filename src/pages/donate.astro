@@ -6,6 +6,7 @@ import SplitPanel from '@components/sections/SplitPanel.astro';
 import CtaBanner from '@components/sections/CtaBanner.astro';
 import gearImage from '../assets/images/pages/gear.jpg';
 import firefightersImage from '../assets/images/pages/slide-firefighters.jpg';
+import { Truck, GraduationCap, Home, Users, CreditCard, Mail, Gift } from 'lucide-astro';
 
 const seoTitle = "Support Easton Volunteer Fire Company | Donate to Easton Volunteer Fire Company #1";
 const seoDescription = "Support Easton Volunteer Fire Company with a tax-deductible donation. Your contributions help us respond to 500+ emergency calls annually and maintain our equipment and training programs.";
@@ -23,22 +24,22 @@ const impactSection = {
         {
             title: "Modern Equipment",
             description: "Fund the purchase and maintenance of state-of-the-art firefighting and rescue equipment.",
-            icon: "truck"
+            icon: Truck
         },
         {
             title: "Training Programs",
             description: "Support ongoing training and certifications for our firefighters to ensure the highest level of service.",
-            icon: "academic-cap"
+            icon: GraduationCap
         },
         {
             title: "Station Maintenance",
             description: "Help maintain our facilities to ensure we're always ready to respond to emergencies.",
-            icon: "home"
+            icon: Home
         },
         {
             title: "Community Events",
             description: "Support our annual carnival and community outreach programs that bring Easton together.",
-            icon: "users"
+            icon: Users
         }
     ]
 }
@@ -62,7 +63,7 @@ const donationMethods = {
         {
             title: "Online Donation",
             description: "Make a secure donation through PayPal or credit card.",
-            icon: "credit-card",
+            icon: CreditCard,
             link: "https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=M2DAJTQKRL5BE&ssrt=1760495035706",
             linkText: "Donate Now",
             linkTarget: "_blank" as const
@@ -70,12 +71,12 @@ const donationMethods = {
         {
             title: "Mail a Check",
             description: "Send checks to: 1 Center Road, Easton CT 06612. Make payable to: Easton Volunteer Fire Company.",
-            icon: "mail"
+            icon: Mail
         },
         {
             title: "Special Donations",
             description: "Interested in vehicle donations or other special contributions? Contact us at info@evfc1.com.",
-            icon: "gift"
+            icon: Gift
         }
     ]
 }

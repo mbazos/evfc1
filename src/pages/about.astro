@@ -5,6 +5,7 @@ import SplitPanel from '@components/sections/SplitPanel.astro';
 import Features from '@components/sections/Features.astro';
 import membersImage from '../assets/images/about/members.jpg';
 import stationImage from '../assets/images/about/station.jpg';
+import { DollarSign, ClipboardList, BarChart } from 'lucide-astro';
 
 const seoTitle = "About Us | Easton Volunteer Fire Company #1";
 const seoDescription = "Learn about Easton Volunteer Fire Company's history since 1921. An independent volunteer organization standing ready to protect and assist in the face of fire, flooding, hazmat, and other disasters.";
@@ -57,17 +58,17 @@ const organizationalStrengths = {
         {
             title: "Active Fundraising",
             description: "Through community events like our annual carnival and generous donations, we maintain the funding necessary to provide top-tier emergency services.",
-            icon: "currency-dollar"
+            icon: DollarSign
         },
         {
             title: "Careful Planning",
             description: "Strategic planning ensures we're prepared for current and future challenges, with equipment and training that meets the highest standards.",
-            icon: "clipboard-document-list"
+            icon: ClipboardList
         },
         {
             title: "Prudent Management",
             description: "Responsible stewardship of resources allows us to maximize the impact of every dollar, ensuring the best possible service for Easton.",
-            icon: "chart-bar"
+            icon: BarChart
         }
     ]
 }

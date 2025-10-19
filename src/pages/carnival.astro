@@ -6,6 +6,7 @@ import SplitPanel from '@components/sections/SplitPanel.astro';
 import { siteConfig } from '@data/config';
 import carnivalImage from '../assets/images/carnival/slide-carnival.jpg';
 import pirateShipImage from '../assets/images/carnival/pirate-ship.jpg';
+import { Ticket, Trophy, UtensilsCrossed, Grid3x3, Heart } from 'lucide-astro';
 
 const seoTitle = "Annual Carnival | Easton Volunteer Fire Company #1";
 const seoDescription = "Join us for the Easton Volunteer Fire Company Annual Carnival! A beloved community tradition held each summer with rides, games, food, and family fun supporting our volunteer fire company.";
@@ -51,27 +52,27 @@ const carnivalFeatures = {
         {
             title: "Rides",
             description: "Fun rides for all ages.",
-            icon: "users"
+            icon: Ticket
         },
         {
             title: "Games & Prizes",
             description: "Classic carnival games where you can test your skills and win prizes for the whole family.",
-            icon: "trophy"
+            icon: Trophy
         },
         {
             title: "Food & Refreshments",
             description: "Delicious carnival favorites including fried dough, cotton candy, burgers, and more.",
-            icon: "sparkles"
+            icon: UtensilsCrossed
         },
         {
             title: "Bingo",
             description: "Fast, fun and a great time! Join us for exciting bingo games with prizes.",
-            icon: "grid-3x3"
+            icon: Grid3x3
         },
         {
             title: "Community Spirit",
             description: "Connect with neighbors and support your local volunteer fire company while enjoying great entertainment.",
-            icon: "heart"
+            icon: Heart
         }
     ]
 }
