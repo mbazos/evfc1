@@ -70,7 +70,9 @@ const organizationalStrengths = {
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-    <SplitPanel content={missionSection} imagePosition="right" background="light" padding="base" />
+    <div style="padding-top: 150px" class="lg:pt-[60px]">
+        <SplitPanel content={missionSection} imagePosition="right" background="light" padding="base" />
+    </div>
     <Features content={organizationalStrengths} background="base" padding="base" />
     <SplitPanel content={capabilitiesSection} imagePosition="left" background="light" padding="base" />
 </Layout>

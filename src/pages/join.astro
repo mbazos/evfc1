@@ -104,7 +104,9 @@ const contactCta = {
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-    <Features content={whyJoinSection} background="light" padding="base" />
+    <div style="padding-top: 150px" class="lg:pt-[60px]">
+        <Features content={whyJoinSection} background="light" padding="base" />
+    </div>
     <SplitPanel content={requirementsSection} imagePosition="right" background="base" padding="base" />
     <Features content={applicationSection} background="light" padding="base" iconType="numbered" />
     <CtaBanner content={contactCta} variant="contained" background="base" paddingBottom="base" />

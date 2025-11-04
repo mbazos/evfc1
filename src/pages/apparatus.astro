@@ -111,7 +111,14 @@ const apparatus = [
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-    <section class="bg-background-light pt-base pb-base">
+    <section class="bg-background-light pt-base pb-base" style="padding-top: 150px">
+        <style>
+            @media (min-width: 1024px) {
+                section:first-child {
+                    padding-top: 60px !important;
+                }
+            }
+        </style>
         <div class="site-container px-4">
             <div class="text-center mb-16 max-w-3xl mx-auto">
                 <h2 class="text-headline-light" data-aos="fade-up">
