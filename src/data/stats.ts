@@ -67,7 +67,11 @@ export const statsLists: Record<string, StatsList> = {
             },
             {
                 value: 1,
-                label: 'Brush Truck',
+                label: 'Utility Truck',
+            },
+            {
+                value: 1,
+                label: 'UTV',
             },
             {
                 value: 8,

@@ -3,7 +3,6 @@ import Layout from '@layouts/Layout.astro';
 import InnerHero from '@components/sections/InnerHero.astro';
 import Features from '@components/sections/Features.astro';
 import SplitPanel from '@components/sections/SplitPanel.astro';
-import CtaBanner from '@components/sections/CtaBanner.astro';
 import gearImage from '../assets/images/pages/gear.jpg';
 import firefightersImage from '../assets/images/pages/slide-firefighters.jpg';
 import { Truck, GraduationCap, Home, Users, CreditCard, Mail, Gift } from 'lucide-astro';
@@ -12,8 +11,16 @@ const seoTitle = "Support Easton Volunteer Fire Company | Donate to Easton Volun
 const seoDescription = "Support Easton Volunteer Fire Company with a tax-deductible donation. Your contributions help us respond to 500+ emergency calls annually and maintain our equipment and training programs.";
 
 const heroContent = {
-    title: "Support Easton Volunteer Fire Company",
-    description: "Help Us Continue Serving Easton",
+    title: "",
+    description: "",
+    buttons: [
+        {
+            text: "Donate Now",
+            link: "https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=M2DAJTQKRL5BE&ssrt=1760495035706",
+            variant: "primary" as const,
+            target: "_blank"
+        }
+    ]
 }
 
 const impactSection = {

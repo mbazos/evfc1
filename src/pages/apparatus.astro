@@ -16,9 +16,13 @@ import engine43 from '../assets/images/apparatus/engine-4-3.jpg';
 import utility11 from '../assets/images/apparatus/utility-1-1.jpg';
 import utility12 from '../assets/images/apparatus/utility-1-2.jpg';
 import utility13 from '../assets/images/apparatus/utility-1-3.jpg';
+// TODO: Add actual UTV images to apparatus folder
+import utv11 from '../assets/images/apparatus/utility-1-1.jpg'; // Placeholder - replace with utv-1-1.jpg
+import utv12 from '../assets/images/apparatus/utility-1-2.jpg'; // Placeholder - replace with utv-1-2.jpg
+import utv13 from '../assets/images/apparatus/utility-1-3.jpg'; // Placeholder - replace with utv-1-3.jpg
 
 const seoTitle = "Our Apparatus | Easton Volunteer Fire Company #1";
-const seoDescription = "Explore Easton Volunteer Fire Company's fleet of modern fire apparatus. Four engines and one utility vehicle equipped for structure fires, rescue operations, water supply, and specialized emergencies.";
+const seoDescription = "Explore Easton Volunteer Fire Company's fleet of modern fire apparatus. Four engines, one utility vehicle, and a UTV equipped for structure fires, rescue operations, water supply, brush fires, and specialized emergencies.";
 
 const heroContent = {
     title: "Our Apparatus",
@@ -56,7 +60,7 @@ const apparatus = [
     },
     {
         name: "Engine 3",
-        type: "Pierce 'Puck'",
+        type: "PUC (Pierce Ultimate Configuration)",
         year: 2012,
         images: [engine31, engine32, engine33],
         specs: [
@@ -70,20 +74,20 @@ const apparatus = [
     },
     {
         name: "Engine 4",
-        type: "Pierce 'Dash'",
-        year: 1996,
+        type: "Marion",
+        year: 2020,
         images: [engine41, engine42, engine43],
         specs: [
             { label: "Water Tank", value: "1000 gallons" },
             { label: "Pump Capacity", value: "1500 GPM" },
             { label: "Hose", value: "1500 ft 5\" supply, 500 ft 2.5\" hose, 2x200 ft 1.75\" pre-connect" },
-            { label: "Seating", value: "6 firefighters" }
+            { label: "Seating", value: "4 firefighters" }
         ],
         primaryFunction: "First due to structure fires",
-        notes: "Planned replacement in 2020 with Marion Body Works engine"
+        notes: ""
     },
     {
-        name: "Utility 1",
+        name: "Utility",
         type: "Chevrolet 3500 Crew Cab",
         year: 2015,
         images: [utility11, utility12, utility13],
@@ -93,6 +97,20 @@ const apparatus = [
         ],
         primaryFunction: "Crew transportation, equipment transport, traffic control",
         notes: "Purchased with proceeds from carnival. Used to transport personnel and supplies to training and fire-related activities."
+    },
+    {
+        name: "Brush 5",
+        type: "Polaris 1000",
+        year: 2023,
+        images: [utv11, utv12, utv13],
+        specs: [
+            { label: "Water Tank", value: "52 gallons" },
+            { label: "Hose", value: "1100 ft forestry hose" },
+            { label: "Equipment", value: "Chain saw, removable pump" },
+            { label: "Seating", value: "2 firefighters" }
+        ],
+        primaryFunction: "Brush fires",
+        notes: "Can draft water. Equipped with removable pump for flexible deployment."
     }
 ];
 
@@ -108,7 +126,7 @@ const apparatus = [
                     Our Fleet
                 </h2>
                 <p class="mt-4 text-body-light opacity-90" data-aos="fade-up" data-aos-delay="100">
-                    We maintain four modern fire engines and one utility vehicle, each equipped for specific emergency situations. Our apparatus ensures we're ready to respond to any call, from structure fires to specialized rescue operations.
+                    We maintain four modern fire engines, one utility vehicle, and a UTV, each equipped for specific emergency situations. Our apparatus ensures we're ready to respond to any call, from structure fires to brush fires and specialized rescue operations.
                 </p>
             </div>
 
