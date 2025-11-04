@@ -1,6 +1,5 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import InnerHero from '@components/sections/InnerHero.astro';
 import SplitPanel from '@components/sections/SplitPanel.astro';
 import Features from '@components/sections/Features.astro';
 import membersImage from '../assets/images/about/members.jpg';
@@ -9,11 +8,6 @@ import { DollarSign, ClipboardList, BarChart } from 'lucide-astro';
 
 const seoTitle = "About Us | Easton Volunteer Fire Company #1";
 const seoDescription = "Learn about Easton Volunteer Fire Company's history since 1921. An independent volunteer organization standing ready to protect and assist in the face of fire, flooding, hazmat, and other disasters.";
-
-const heroContent = {
-    title: "About Us",
-    description: "Protecting Easton Since 1921",
-}
 
 const missionSection = {
     eyebrow: "OUR MISSION",
@@ -76,7 +70,6 @@ const organizationalStrengths = {
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-    <InnerHero content={heroContent} />
     <SplitPanel content={missionSection} imagePosition="right" background="light" padding="base" />
     <Features content={organizationalStrengths} background="base" padding="base" />
     <SplitPanel content={capabilitiesSection} imagePosition="left" background="light" padding="base" />

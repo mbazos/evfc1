@@ -1,6 +1,5 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import InnerHero from '@components/sections/InnerHero.astro';
 import engine11 from '../assets/images/apparatus/engine-1-1.jpg';
 import engine12 from '../assets/images/apparatus/engine-1-2.jpg';
 import engine13 from '../assets/images/apparatus/engine-1-3.jpg';
@@ -23,11 +22,6 @@ import utv13 from '../assets/images/apparatus/utility-1-3.jpg'; // Placeholder -
 
 const seoTitle = "Our Apparatus | Easton Volunteer Fire Company #1";
 const seoDescription = "Explore Easton Volunteer Fire Company's fleet of modern fire apparatus. Four engines, one utility vehicle, and a UTV equipped for structure fires, rescue operations, water supply, brush fires, and specialized emergencies.";
-
-const heroContent = {
-    title: "Our Apparatus",
-    description: "State-of-the-Art Equipment Ready to Serve",
-}
 
 const apparatus = [
     {
@@ -117,8 +111,6 @@ const apparatus = [
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-    <InnerHero content={heroContent} />
-
     <section class="bg-background-light pt-base pb-base">
         <div class="site-container px-4">
             <div class="text-center mb-16 max-w-3xl mx-auto">

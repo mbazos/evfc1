@@ -1,6 +1,5 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import InnerHero from '@components/sections/InnerHero.astro';
 import { Image } from 'astro:assets';
 import robertKlemImg from '../assets/images/members/robert-klem.jpg';
 import stevenWaughImg from '../assets/images/members/steven-waugh.jpg';
@@ -21,11 +20,6 @@ import lucyCrossmanImg from '../assets/images/members/lucy-crossman.jpg';
 
 const seoTitle = "Our Team | Easton Volunteer Fire Company #1";
 const seoDescription = "Meet the dedicated career firefighters of Easton Volunteer Fire Company. Our team of professionals provides 24/7 emergency response to protect Easton, Connecticut.";
-
-const heroContent = {
-    title: "Our Team",
-    description: "Dedicated Professionals Serving Easton",
-}
 
 const currentYear = new Date().getFullYear();
 
@@ -185,8 +179,6 @@ const administration = [
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-    <InnerHero content={heroContent} />
-
     <section class="bg-background-light pt-base pb-small">
         <div class="site-container px-4">
             <div class="text-center mb-16 max-w-3xl mx-auto">
