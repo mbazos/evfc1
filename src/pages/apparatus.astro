@@ -15,10 +15,7 @@ import engine43 from '../assets/images/apparatus/engine-4-3.jpg';
 import utility11 from '../assets/images/apparatus/utility-1-1.jpg';
 import utility12 from '../assets/images/apparatus/utility-1-2.jpg';
 import utility13 from '../assets/images/apparatus/utility-1-3.jpg';
-// TODO: Add actual UTV images to apparatus folder
-import utv11 from '../assets/images/apparatus/utility-1-1.jpg'; // Placeholder - replace with utv-1-1.jpg
-import utv12 from '../assets/images/apparatus/utility-1-2.jpg'; // Placeholder - replace with utv-1-2.jpg
-import utv13 from '../assets/images/apparatus/utility-1-3.jpg'; // Placeholder - replace with utv-1-3.jpg
+import brush51 from '../assets/images/apparatus/brush-5-1.png';
 
 const seoTitle = "Our Apparatus | Easton Volunteer Fire Company #1";
 const seoDescription = "Explore Easton Volunteer Fire Company's fleet of modern fire apparatus. Four engines, one utility vehicle, and a UTV equipped for structure fires, rescue operations, water supply, brush fires, and specialized emergencies.";
@@ -96,7 +93,7 @@ const apparatus = [
         name: "Brush 5",
         type: "Polaris 1000",
         year: 2023,
-        images: [utv11, utv12, utv13],
+        images: [brush51],
         specs: [
             { label: "Water Tank", value: "52 gallons" },
             { label: "Hose", value: "1100 ft forestry hose" },
@@ -136,7 +133,7 @@ const apparatus = [
                         data-aos="fade-up"
                         data-aos-delay={index * 100}
                     >
-                        <div class="grid grid-cols-3 gap-2 p-2">
+                        <div class={`grid gap-2 p-2 ${vehicle.images.length === 1 ? 'grid-cols-1' : vehicle.images.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
                             {vehicle.images.map((img, imgIndex) => (
                                 <div class="aspect-[4/3] overflow-hidden max-h-48">
                                     <img
