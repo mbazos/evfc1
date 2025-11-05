@@ -547,6 +547,22 @@ body {
     display: none !important;
 }
 
+/* Performance optimizations */
+.mobile-menu {
+    will-change: opacity, transform;
+}
+
+[data-aos] {
+    will-change: transform, opacity;
+}
+
+/* Smooth hardware-accelerated transforms */
+.mobile-menu-button,
+.submenu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
 .site-container {
     @apply mx-auto max-w-[var(--container-base)] w-full;
 }
