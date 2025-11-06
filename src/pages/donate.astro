@@ -89,18 +89,29 @@ const taxInfoSection = {
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-    <section class="bg-background-light pt-large pb-large">
+    <section class="bg-background-light pt-large pb-base">
         <div class="site-container px-4">
-            <div class="flex justify-center items-center mt-30">
-                <Button
-                    href="https://givebutter.com/aRmMP3"
-                    variant="primary"
-                    target="_blank"
-                    size="lg"
-                    class="!text-4xl !px-16 !py-8 !font-bold shadow-2xl hover:scale-105 transition-transform"
-                >
-                    Donate Now
-                </Button>
+            <div class="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
+                <h1 class="text-h1 mb-6 text-headline-light" data-aos="fade-up">
+                    Support Our Mission
+                </h1>
+                <p class="text-large mb-12 text-body-light opacity-90 max-w-2xl" data-aos="fade-up" data-aos-delay="100">
+                    Your generosity helps us protect and serve the Easton community 24/7/365
+                </p>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <Button
+                        href="https://givebutter.com/aRmMP3"
+                        variant="primary"
+                        target="_blank"
+                        size="lg"
+                        class="donate-button !text-3xl !px-12 !py-6 !font-bold !rounded-xl"
+                    >
+                        Donate Now
+                    </Button>
+                </div>
+                <p class="mt-6 text-small text-body-light opacity-75" data-aos="fade-up" data-aos-delay="300">
+                    Tax-deductible 501(c)(3) contribution
+                </p>
             </div>
         </div>
     </section>
@@ -109,3 +120,19 @@ const taxInfoSection = {
     <Features content={donationMethods} background="light" padding="base" showIcons={false} />
     <SplitPanel content={taxInfoSection} imagePosition="left" background="base" padding="base" />
 </Layout>
+
+<style>
+    .donate-button {
+        box-shadow: 0 8px 24px rgba(204, 0, 0, 0.35);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .donate-button:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 12px 32px rgba(204, 0, 0, 0.45);
+    }
+
+    .donate-button:active {
+        transform: translateY(-2px) scale(1.01);
+    }
+</style>

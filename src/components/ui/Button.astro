@@ -20,7 +20,7 @@ const {
   ...rest
 } = Astro.props;
 
-const baseStyles = 'group relative inline-flex overflow-hidden items-center justify-center rounded-border-small font-medium transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 rounded-md flex items-center gap-2';
+const baseStyles = 'group relative inline-flex overflow-hidden items-center justify-center rounded-border-small font-medium transition-all duration-250 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 rounded-md flex items-center gap-2 will-change-transform';
 
 
 const variants = {
@@ -56,7 +56,7 @@ const Element = href ? 'a' : 'button';
   aria-disabled={disabled}
   {...(target && { target, rel: target === '_blank' ? 'noopener noreferrer' : undefined })}
 >
-  <span class="absolute left-0 -mt-12 h-32 w-1/2 translate-x-[250%] rotate-12 bg-white opacity-20 transition-all duration-250 ease-out group-hover:translate-x-[2%]"></span>
+  <span class="absolute left-0 -mt-12 h-32 w-1/2 translate-x-[250%] rotate-12 bg-white opacity-20 transition-all duration-250 ease-out group-hover:translate-x-[2%]" style="transform: translateZ(0); will-change: transform;"></span>
   <slot />
 </Element>
 
