@@ -84,7 +84,7 @@ const paddingClass = getPaddingClass({
             {features.map((feature, index) => (
                 <div 
                     class:list={[
-                        "p-6 rounded-lg border border-black",
+                        "p-6 rounded-lg border border-white/10 feature-card",
                         background === 'dark' ? 'bg-background-base/10' : 'bg-background/90',
                         "flex flex-col"
                     ]}
@@ -132,5 +132,15 @@ const paddingClass = getPaddingClass({
 <style>
     .grid-cols-auto-fit {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .feature-card {
+        transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 26, 26, 0.4);
+        box-shadow: 0 8px 32px rgba(255, 26, 26, 0.12), 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 </style>

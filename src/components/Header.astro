@@ -23,7 +23,7 @@ const isCurrentPage = (link: string) => {
 
 <header class="fixed top-0 z-50 w-full left-0">
     <div class="site-container mx-auto px-4 mt-4">
-        <div class="flex justify-between items-center bg-white py-4 rounded-lg px-4 border-black border">
+        <div class="flex justify-between items-center bg-black/70 backdrop-blur-md py-4 rounded-lg px-4 border border-white/15 shadow-lg shadow-black/40">
             <Logo />
             <nav class="relative flex items-center gap-2 lg:gap-8" aria-label="Site Navigation">
                 {/* Desktop Menu */}
@@ -63,7 +63,7 @@ const isCurrentPage = (link: string) => {
                                 {item.children && (
                                     <ul
                                         class:list={[
-                                            'submenu absolute mt-2 bg-nav-submenu-bg border-black border rounded-md min-w-[200px] transition-all duration-200 opacity-0 invisible overflow-hidden z-50',
+                                            'submenu absolute mt-2 bg-nav-submenu-bg border border-white/15 rounded-md min-w-[200px] transition-all duration-200 opacity-0 invisible overflow-hidden z-50',
                                             index === headerMenu.length - 1 ? 'right-0' : 'left-0',
                                         ]}
                                     >
@@ -99,7 +99,7 @@ const isCurrentPage = (link: string) => {
                     aria-expanded="false"
                 >
                     <span class="menu-icon block">
-                        <Menu size={24} class="text-black" />
+                        <Menu size={24} class="text-white" />
                     </span>
                     <span class="close-icon hidden">
                         <X size={24} class="text-white" />

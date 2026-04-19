@@ -1,11 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import logoSrc from '../assets/logo.png';
+
 interface Props {
     variant?: 'header' | 'footer' | 'dark';
 }
 
 const { variant = 'header' } = Astro.props;
 
-// Determine the appropriate size based on the variant
 const getLogoSize = () => {
     switch (variant) {
         case 'header':
@@ -24,9 +26,12 @@ const getLogoSize = () => {
     "logo transition-opacity duration-200 hover:opacity-80 flex items-center",
     variant === 'header' ? 'relative -my-8 md:-my-10 z-10' : ''
 ]}>
-    <img
-        src="/logo.png"
+    <Image
+        src={logoSrc}
         alt="Easton Volunteer Fire Company #1"
         class:list={['w-auto', getLogoSize()]}
+        format="webp"
+        quality={85}
+        loading={variant === 'header' ? 'eager' : 'lazy'}
     />
 </a>

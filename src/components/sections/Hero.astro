@@ -42,6 +42,10 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
                 class="hero-background absolute inset-0 left-0 top-0 w-full h-full overflow-hidden"
                 style={`opacity: ${opacity};`}
             ></div>
+            <div
+                class="absolute inset-0 pointer-events-none"
+                style="background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(200, 0, 0, 0.35) 0%, transparent 70%);"
+            ></div>
         </div>
     )}
 
@@ -61,6 +65,14 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
                 ))}
             </div>
         )}
+        <div class="mt-16 flex justify-center md:justify-center" aria-hidden="true">
+            <div class="scroll-hint flex flex-col items-center gap-1">
+                <span class="text-white text-xs uppercase tracking-widest opacity-50">Scroll</span>
+                <svg class="w-5 h-5 text-white animate-bounce opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+        </div>
     </div>
 </section>
 
