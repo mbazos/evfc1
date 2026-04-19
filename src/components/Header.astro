@@ -94,7 +94,7 @@ const isCurrentPage = (link: string) => {
 
                 {/* Mobile Menu Button */}
                 <button
-                    class="mobile-menu-button relative z-30 p-2 border-none cursor-pointer bg-transparent lg:hidden"
+                    class="mobile-menu-button relative z-[70] p-2 border-none cursor-pointer bg-transparent lg:hidden"
                     aria-label="Toggle Menu"
                     aria-expanded="false"
                 >
@@ -105,82 +105,81 @@ const isCurrentPage = (link: string) => {
                         <X size={24} class="text-white" />
                     </span>
                 </button>
+            </nav>
+        </div>
+    </div>
 
-                {/* Mobile Menu Panel */}
-                <div
-                    class="mobile-menu fixed inset-0 z-20 px-8 pt-20 bg-background-dark lg:hidden hidden opacity-0 scale-95 transform transition-all duration-200 ease-out overflow-y-auto"
-                >
-                    <ul class="flex flex-col gap-4">
-                        {
-                            headerMenu.map((item) => (
-                                <li>
-                                    <div class="text-white">
-                                        <div class="flex items-center justify-between">
+    {/* Mobile Menu Panel — outside backdrop-blur container to avoid WebKit fixed-position containment bug */}
+    <div
+        class="mobile-menu fixed inset-0 z-[60] px-8 pt-24 bg-background-dark lg:hidden hidden opacity-0 scale-95 transform transition-all duration-200 ease-out overflow-y-auto"
+    >
+        <ul class="flex flex-col gap-4">
+            {
+                headerMenu.map((item) => (
+                    <li>
+                        <div class="text-white">
+                            <div class="flex items-center justify-between">
+                                <a
+                                    href={item.link}
+                                    class:list={[
+                                        'py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-nav-mobile-text-active',
+                                        isCurrentPage(item.link)
+                                            ? 'text-nav-mobile-text-current font-semibold'
+                                            : 'text-nav-mobile-text hover:text-nav-mobile-text-hover',
+                                    ]}
+                                    aria-current={isCurrentPage(item.link) ? 'page' : undefined}
+                                >
+                                    {item.name}
+                                </a>
+                                {item.children && (
+                                    <button
+                                        class:list={[
+                                            'mobile-submenu-button p-2 -mr-2 rounded-md focus:outline-none focus:ring-2 focus:ring-nav-mobile-text-active',
+                                            isCurrentPage(item.link)
+                                                ? 'text-nav-mobile-text-current'
+                                                : 'text-nav-mobile-text hover:text-nav-mobile-text-hover',
+                                        ]}
+                                        aria-label={`Toggle ${item.name} submenu`}
+                                        aria-expanded="false"
+                                    >
+                                        <ChevronDown
+                                            size={16}
+                                            class="transform transition-transform duration-200"
+                                        />
+                                    </button>
+                                )}
+                            </div>
+                            {item.children && (
+                                <ul class="mobile-submenu ml-4 mt-2 space-y-2 hidden" role="menu">
+                                    {item.children.map((child) => (
+                                        <li role="none">
                                             <a
-                                                href={item.link}
+                                                href={child.link}
                                                 class:list={[
-                                                    'py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-nav-mobile-text-active',
-                                                    isCurrentPage(item.link)
+                                                    'block py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-nav-mobile-text-active',
+                                                    isCurrentPage(child.link)
                                                         ? 'text-nav-mobile-text-current font-semibold'
                                                         : 'text-nav-mobile-text hover:text-nav-mobile-text-hover',
                                                 ]}
-                                                aria-current={isCurrentPage(item.link) ? 'page' : undefined}
+                                                role="menuitem"
+                                                aria-current={
+                                                    isCurrentPage(child.link) ? 'page' : undefined
+                                                }
                                             >
-                                                {item.name}
+                                                {child.name}
                                             </a>
-                                            {item.children && (
-                                                <button
-                                                    class:list={[
-                                                        'mobile-submenu-button p-2 -mr-2 rounded-md focus:outline-none focus:ring-2 focus:ring-nav-mobile-text-active',
-                                                        isCurrentPage(item.link)
-                                                            ? 'text-nav-mobile-text-current'
-                                                            : 'text-nav-mobile-text hover:text-nav-mobile-text-hover',
-                                                    ]}
-                                                    aria-label={`Toggle ${item.name} submenu`}
-                                                    aria-expanded="false"
-                                                >
-                                                    <ChevronDown
-                                                        size={16}
-                                                        class="transform transition-transform duration-200"
-                                                    />
-                                                </button>
-                                            )}
-                                        </div>
-                                        {item.children && (
-                                            <ul class="mobile-submenu ml-4 mt-2 space-y-2 hidden" role="menu">
-                                                {item.children.map((child) => (
-                                                    <li role="none">
-                                                        <a
-                                                            href={child.link}
-                                                            class:list={[
-                                                                'block py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-nav-mobile-text-active',
-                                                                isCurrentPage(child.link)
-                                                                    ? 'text-nav-mobile-text-current font-semibold'
-                                                                    : 'text-nav-mobile-text hover:text-nav-mobile-text-hover',
-                                                            ]}
-                                                            role="menuitem"
-                                                            aria-current={
-                                                                isCurrentPage(child.link) ? 'page' : undefined
-                                                            }
-                                                        >
-                                                            {child.name}
-                                                        </a>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </div>
-                                </li>
-                            ))
-                        }
-                    </ul>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
 
-                    {/* Updated mobile CTA button styling */}
-                    <div class="mt-8 pb-8">
-                        <Button href={ctaButton.link} variant="ghostLight">{ctaButton.name} </Button>
-                    </div>
-                </div>
-            </nav>
+        <div class="mt-8 pb-8">
+            <Button href={ctaButton.link} variant="ghostLight">{ctaButton.name}</Button>
         </div>
     </div>
 </header>
