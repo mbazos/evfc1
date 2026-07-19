@@ -257,6 +257,12 @@ const features = [
             font-size: 1.05rem;
             animation: drop-in 0.8s 0.4s ease both;
         }
+        .hero-fb {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.4rem;
+            animation: drop-in 0.8s 0.45s ease both;
+        }
         .hero-ctas {
             display: flex;
             flex-wrap: wrap;
@@ -473,7 +479,6 @@ const features = [
             padding: 0.35rem 1rem;
         }
         .raffle-side .btn { margin-top: 2rem; }
-        .raffle-side .raffle-fb-cta .btn { margin-top: 0.9rem; }
         .raffle-note { margin-top: 1rem; color: var(--cream-dim); font-size: 0.95rem; font-style: italic; }
 
         /* =========== SUPPORT / FOOTER =========== */
@@ -545,6 +550,9 @@ const features = [
                 <div class="dt-hours"><Clock size={18} aria-hidden="true" /> 6:00 – 11:00 PM Nightly</div>
             </div>
             <p class="hero-place"><MapPin size={18} aria-hidden="true" /> {siteConfig.Socials.Location}</p>
+            <div class="hero-fb">
+                <a class="btn btn-ghost" href={siteConfig.Socials.Facebook} target="_blank" rel="noopener"><Facebook size={20} aria-hidden="true" /> Live Updates on Facebook</a>
+            </div>
             <div class="hero-ctas">
                 <a class="btn btn-red" href="#raffle"><Ticket size={20} aria-hidden="true" /> Jeep Raffle Tickets</a>
                 <a class="btn btn-ghost" href="#expect">What's at the Carnival</a>
@@ -645,9 +653,6 @@ const features = [
                         <span class="fact">Live-streamed</span>
                     </div>
                     <a class="btn btn-red" href={raffleUrl} target="_blank" rel="noopener"><Ticket size={20} aria-hidden="true" /> Buy Tickets Online</a>
-                    <div class="raffle-fb-cta">
-                        <a class="btn btn-ghost" href={siteConfig.Socials.Facebook} target="_blank" rel="noopener"><Facebook size={20} aria-hidden="true" /> Live Updates on Facebook</a>
-                    </div>
                     <p class="raffle-note">Winner need not be present to win.</p>
                 </div>
             </div>
