@@ -8,15 +8,9 @@ const site = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 
 export default defineConfig({
   site,
-  // COMING SOON: remove this redirects block to re-enable the site
+  // The carnival landing page used to live at /coming-soon; keep old links working.
   redirects: {
-    '/about':    '/coming-soon',
-    '/apparatus': '/coming-soon',
-    '/carnival': '/coming-soon',
-    '/contact':  '/coming-soon',
-    '/donate':   '/coming-soon',
-    '/join':     '/coming-soon',
-    '/members':  '/coming-soon',
+    '/coming-soon': '/carnival',
   },
   vite: {
     plugins: [tailwindcss()],
