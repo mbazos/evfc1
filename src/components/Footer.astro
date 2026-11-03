@@ -82,31 +82,49 @@ const currentYear = new Date().getFullYear();
         <nav>
           <ul class="space-y-2">
             <li>
-              <a href={siteConfig.Socials.Facebook} target="_blank" class="text-body-dark hover:text-white transition-colors flex items-center gap-2">
+              <a href={siteConfig.Socials.Facebook} target="_blank" rel="noopener noreferrer" class="text-body-dark hover:text-white transition-colors flex items-center gap-2">
                 <Facebook size={18} />
                 <span>Facebook</span>
               </a>
             </li>
             <li>
-              <a href="https://www.eastonct.gov/" target="_blank" class="text-body-dark hover:text-white transition-colors flex items-center gap-2">
+              <a href="https://www.eastonct.gov/" target="_blank" rel="noopener noreferrer" class="text-body-dark hover:text-white transition-colors flex items-center gap-2">
                 <Building2 size={18} />
                 <span>Town of Easton</span>
               </a>
             </li>
             <li>
-              <a href="https://eastonems.com/" target="_blank" class="text-body-dark hover:text-white transition-colors flex items-center gap-2">
+              <a href="https://eastonems.com/" target="_blank" rel="noopener noreferrer" class="text-body-dark hover:text-white transition-colors flex items-center gap-2">
                 <Ambulance size={18} />
                 <span>Easton EMS</span>
               </a>
             </li>
             <li>
-              <a href="https://www.eastonct.gov/fire" target="_blank" class="text-body-dark hover:text-white transition-colors flex items-center gap-2">
+              <a href="https://www.eastonct.gov/fire" target="_blank" rel="noopener noreferrer" class="text-body-dark hover:text-white transition-colors flex items-center gap-2">
                 <FileText size={18} />
                 <span>Fire Marshal Forms</span>
               </a>
             </li>
           </ul>
         </nav>
+      </div>
+
+      <div class="col-span-1">
+        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+        <address class="not-italic space-y-2 text-body-dark">
+          <p class="!text-body-dark">
+            {siteConfig.companyName}<br />
+            1 Center Road<br />
+            Easton, CT 06612
+          </p>
+          <p class="!text-body-dark">
+            <a href={`tel:+1${siteConfig.Socials.Phone.replace(/\D/g, '')}`} class="text-body-dark hover:text-white transition-colors">{siteConfig.Socials.Phone}</a>
+          </p>
+          <p class="!text-body-dark">
+            <a href={`mailto:${siteConfig.Socials.Email}`} class="text-body-dark hover:text-white transition-colors">{siteConfig.Socials.Email}</a>
+          </p>
+          <p class="!text-white font-semibold">Emergency? Dial 911</p>
+        </address>
       </div>
     </div>
 

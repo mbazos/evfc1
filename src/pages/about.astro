@@ -6,7 +6,7 @@ import membersImage from '../assets/images/about/members.jpg';
 import stationImage from '../assets/images/about/station.jpg';
 import { DollarSign, ClipboardList, BarChart } from 'lucide-astro';
 
-const seoTitle = "About Us | Easton Volunteer Fire Company #1";
+const seoTitle = "About Us";
 const seoDescription = "Learn about Easton Volunteer Fire Company's history since 1921. An independent volunteer organization standing ready to protect and assist in the face of fire, flooding, hazmat, and other disasters.";
 
 const missionSection = {
@@ -69,9 +69,9 @@ const organizationalStrengths = {
 
 ---
 
-<Layout title={seoTitle} description={seoDescription}>
+<Layout title={seoTitle} description={seoDescription} image={stationImage} imageAlt="The Easton Volunteer Fire Company #1 station">
     <div style="padding-top: 150px" class="lg:pt-[60px]">
-        <SplitPanel content={missionSection} imagePosition="right" background="light" padding="base" />
+        <SplitPanel content={missionSection} imagePosition="right" background="light" padding="base" headingLevel={1} />
     </div>
     <Features content={organizationalStrengths} background="base" padding="base" />
     <SplitPanel content={capabilitiesSection} imagePosition="left" background="light" padding="base" />

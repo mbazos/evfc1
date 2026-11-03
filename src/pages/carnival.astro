@@ -7,6 +7,13 @@ import raffleTicketsPhoto from '../assets/images/carnival/jeep-raffle.jpg';
 import rafflePromo from '../assets/images/carnival/raffle-promo.png';
 import { Ticket, Trophy, UtensilsCrossed, Grid3x3, Heart, MapPin, Clock, Facebook, Target, CircleParking, ArrowLeft } from 'lucide-astro';
 import { carnival, resolveCarnival, pageTitle, pageDescription } from '@data/carnival';
+import Seo from '@components/seo/Seo.astro';
+import '@fontsource/rye/latin-400.css';
+import '@fontsource/staatliches/latin-400.css';
+import '@fontsource-variable/cabin/index.css';
+import '@fontsource-variable/cabin/standard-italic.css';
+import { organizationSchema, websiteSchema, breadcrumbSchema, carnivalEventSchema } from '@data/schema';
+import { getImage } from 'astro:assets';
 
 // Initial state is computed at build time (so no-JS visitors and crawlers get the right
 // page); the script at the bottom re-resolves it in the browser so the page rolls over
@@ -15,7 +22,11 @@ const state = resolveCarnival(new Date());
 const raffle = carnival.raffle;
 const title = pageTitle(state);
 const description = pageDescription(state);
-const canonicalUrl = new URL('/carnival', siteConfig.siteUrl).toString();
+// Share image: the raffle promo while a raffle is on, otherwise the carnival photo.
+const shareImage = state.raffleVisible && raffle ? raffleTicketsPhoto : carnivalImage;
+const shareImageAlt = state.raffleVisible && raffle ? raffle.photoAlt : 'Rides lit up at night at the Easton Volunteer Fire Company annual carnival';
+const eventImage = await getImage({ src: shareImage, width: 1200, height: 630, fit: 'cover', format: 'jpeg', quality: 80 });
+const eventSchema = carnivalEventSchema(state, description, new URL(eventImage.src, siteConfig.siteUrl).toString());
 
 const features = [
     {
@@ -61,21 +72,24 @@ const features = [
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <Seo
+        title={title}
+        description={description}
+        path="/carnival/"
+        image={shareImage}
+        imageAlt={shareImageAlt}
+        jsonLd={[
+            organizationSchema(),
+            websiteSchema(),
+            breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Carnival', path: '/carnival/' }]),
+            eventSchema,
+        ]}
+    />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Staatliches&family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -92,7 +106,7 @@ const features = [
             --line: rgba(240, 167, 44, 0.28);
             --font-display: 'Rye', 'Georgia', serif;
             --font-poster: 'Staatliches', 'Impact', sans-serif;
-            --font-body: 'Cabin', 'Trebuchet MS', sans-serif;
+            --font-body: 'Cabin Variable', 'Cabin', 'Trebuchet MS', sans-serif;
         }
 
         html { scroll-behavior: smooth; }
@@ -623,6 +637,7 @@ const features = [
             </div>
         </div>
     </header>
+    <main id="main">
 
     <div class="bulbs" aria-hidden="true"></div>
 
@@ -722,6 +737,7 @@ const features = [
     <div class="bulbs" aria-hidden="true"></div>
 
     <!-- =========== SUPPORT / FOOTER =========== -->
+    </main>
     <footer class="support">
         <div class="wrap">
             <div class="support-grid">

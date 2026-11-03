@@ -4,3 +4,12 @@
 
 [build.environment]
   NODE_VERSION = "24"
+  PUBLIC_SITE_URL = "https://evfc1.com"
+
+# The carnival landing page used to live at /coming-soon. A real 301 is better
+# for SEO than the meta-refresh page Astro generates for the redirect.
+[[redirects]]
+  from = "/coming-soon"
+  to = "/carnival/"
+  status = 301
+  force = true

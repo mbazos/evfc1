@@ -23,6 +23,8 @@ export interface Props {
     paddingBottom?: PaddingSize;
     iconType?: 'checkmark' | 'numbered';
     showIcons?: boolean;
+    /** Use 1 when this is the first section of a page that has no hero (renders an <h1>). */
+    headingLevel?: 1 | 2;
 }
 
 const {
@@ -35,8 +37,10 @@ const {
     },
     background = 'base',
     iconType = 'checkmark',
-    showIcons = true
+    showIcons = true,
+    headingLevel = 2
 } = Astro.props;
+const Heading = headingLevel === 1 ? 'h1' : 'h2';
 
 const bgColor = getBackgroundColor(background);
 const textColor = getTextColor(background);
@@ -58,9 +62,9 @@ const paddingClass = getPaddingClass({
                     />
                 )}
                 {title && (
-                    <h2 class:list={[textColor]} data-aos="fade-up">
+                    <Heading class:list={[textColor, headingLevel === 1 && "text-h2 !font-semibold"]} data-aos="fade-up">
                         {title}
-                    </h2>
+                    </Heading>
                 )}
                 {description && (
                     <p class:list={["mt-4", textColor, "opacity-90"]} data-aos="fade-up" data-aos-delay="100">

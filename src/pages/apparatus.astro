@@ -17,7 +17,7 @@ import utility12 from '../assets/images/apparatus/utility-1-2.jpg';
 import utility13 from '../assets/images/apparatus/utility-1-3.jpg';
 import brush51 from '../assets/images/apparatus/brush-5-1.png';
 
-const seoTitle = "Our Apparatus | Easton Volunteer Fire Company #1";
+const seoTitle = "Our Apparatus";
 const seoDescription = "Explore Easton Volunteer Fire Company's fleet of modern fire apparatus. Four engines, one utility vehicle, and a UTV equipped for structure fires, rescue operations, water supply, brush fires, and specialized emergencies.";
 
 const apparatus = [
@@ -107,20 +107,13 @@ const apparatus = [
 
 ---
 
-<Layout title={seoTitle} description={seoDescription}>
+<Layout title={seoTitle} description={seoDescription} image={engine11} imageAlt="Engine 1 of the Easton Volunteer Fire Company #1 fleet">
     <section class="bg-background-light pt-base pb-base" style="padding-top: 150px">
-        <style>
-            @media (min-width: 1024px) {
-                section:first-child {
-                    padding-top: 60px !important;
-                }
-            }
-        </style>
         <div class="site-container px-4">
             <div class="text-center mb-16 max-w-3xl mx-auto">
-                <h2 class="text-headline-light" data-aos="fade-up">
+                <h1 class="text-h2 !font-semibold text-headline-light" data-aos="fade-up">
                     Our Fleet
-                </h2>
+                </h1>
                 <p class="mt-4 text-body-light opacity-90" data-aos="fade-up" data-aos-delay="100">
                     We maintain four modern fire engines, one utility vehicle, and a UTV, each equipped for specific emergency situations. Our apparatus ensures we're ready to respond to any call, from structure fires to brush fires and specialized rescue operations.
                 </p>
