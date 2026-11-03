@@ -185,7 +185,7 @@ Career Staff List:
 ### Application Process
 1. Download membership application (from website)
 2. Print and fill out application
-3. Bring application with $5.00 application fee
+3. Bring completed application (no application fee)
 4. Submit at monthly meeting (first Monday of each month)
 
 ### Contact for More Information
@@ -354,7 +354,7 @@ Career Staff List:
 #### Join/Recruitment Inquiry Form
 - **Fields:** Name, Email, Phone, Message, Interests (Firefighting/EMS/Support)
 - **Note:** Downloadable application form (PDF)
-- **Application Fee:** $5.00
+- **Application Fee:** None
 - **Submission:** Bring to monthly meeting (first Monday of month)
 
 ### Donation Integration
