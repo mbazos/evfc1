@@ -1,0 +1,66 @@
+---
+// Shared <head> SEO: title, description, canonical, robots, Open Graph, Twitter and JSON-LD.
+// Used by Layout.astro and by pages that render their own <html> (the carnival page).
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { siteConfig, SEO } from '../../data/config';
+
+interface Props {
+    /** Full <title> text, already including the site name. */
+    title: string;
+    description: string;
+    /** Path of this page, e.g. "/about/". A trailing slash is added so it matches the sitemap. */
+    path: string;
+    /** Share image: an imported image or a site-relative / absolute URL. */
+    image?: ImageMetadata | string;
+    imageAlt?: string;
+    noindex?: boolean;
+    /** schema.org objects, each emitted as its own JSON-LD block. */
+    jsonLd?: (object | null | undefined)[];
+}
+
+const { title, description, path, image, imageAlt, noindex = false, jsonLd = [] } = Astro.props;
+
+const normalizedPath = /\.[a-z0-9]+$/i.test(path) || path.endsWith('/') ? path : `${path}/`;
+const canonical = new URL(normalizedPath, siteConfig.siteUrl).toString();
+
+let imageUrl: string | undefined;
+let imageWidth: number | undefined;
+let imageHeight: number | undefined;
+if (typeof image === 'string') {
+    imageUrl = new URL(image, siteConfig.siteUrl).toString();
+} else if (image) {
+    // 1200x630 JPEG: the size every social network and chat unfurler handles well.
+    const og = await getImage({ src: image, width: 1200, height: 630, fit: 'cover', format: 'jpeg', quality: 80 });
+    imageUrl = new URL(og.src, siteConfig.siteUrl).toString();
+    imageWidth = 1200;
+    imageHeight = 630;
+}
+const alt = imageAlt || SEO.SiteName;
+const robots = noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1';
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content={robots} />
+<link rel="canonical" href={canonical} />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SEO.SiteName} />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{imageUrl && <meta property="og:image" content={imageUrl} />}
+{imageUrl && <meta property="og:image:alt" content={alt} />}
+{imageWidth && <meta property="og:image:width" content={String(imageWidth)} />}
+{imageHeight && <meta property="og:image:height" content={String(imageHeight)} />}
+
+<meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:url" content={canonical} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{imageUrl && <meta name="twitter:image" content={imageUrl} />}
+{imageUrl && <meta name="twitter:image:alt" content={alt} />}
+
+{jsonLd.filter(Boolean).map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}

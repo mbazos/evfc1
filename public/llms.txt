@@ -1,0 +1,29 @@
+# Easton Volunteer Fire Company #1
+
+> Easton Volunteer Fire Company #1 (EVFC1) protects Easton, Connecticut. Founded in 1921, it is staffed by volunteer and career firefighters and responds to fires, hazardous materials incidents, flooding and other emergencies. It also runs an annual summer carnival and raffle that fund the company.
+
+**For any fire, medical or other emergency, dial 911.** This website and the contacts below are for non-emergency matters only.
+
+## Contact
+- Address: 1 Center Road, Easton, CT 06612, USA
+- Phone (non-emergency): (203) 268-2833
+- Email: info@evfc1.com
+- Facebook (live updates): https://www.facebook.com/EastonVFD/
+
+## Key pages
+- [Home](https://evfc1.com/): overview of the company and its services
+- [About](https://evfc1.com/about/): mission, history since 1921, and how the company is run
+- [Apparatus](https://evfc1.com/apparatus/): the fleet of fire engines, utility vehicle and UTV
+- [Members](https://evfc1.com/members/): volunteer leadership and career firefighters
+- [Join](https://evfc1.com/join/): how to become a volunteer firefighter (Easton residents 18+), with a downloadable application
+- [Donate](https://evfc1.com/donate/): support the company with a tax-deductible donation
+- [Annual Carnival](https://evfc1.com/carnival/): dates, hours, rides, food and the annual raffle. Dates are announced each year
+- [Contact](https://evfc1.com/contact/): phone, email and address
+
+## Documents
+- [Membership application (PDF)](https://evfc1.com/application.pdf)
+- [Company history (PDF)](https://evfc1.com/history.pdf)
+
+## Machine-readable data
+- Every page embeds schema.org JSON-LD (FireStation, WebSite, BreadcrumbList); the carnival page adds an Event when dates are set.
+- Sitemap: https://evfc1.com/sitemap-index.xml

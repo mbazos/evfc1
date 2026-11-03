@@ -30,6 +30,8 @@ export interface Props {
     paddingTop?: PaddingSize;
     paddingBottom?: PaddingSize;
     padding?: PaddingSize;
+    /** Use 1 when this is the first section of a page that has no hero (renders an <h1>). */
+    headingLevel?: 1 | 2;
 }
 
 const {
@@ -40,7 +42,9 @@ const {
     paddingTop,
     paddingBottom,
     padding,
+    headingLevel = 2,
 } = Astro.props;
+const Heading = headingLevel === 1 ? 'h1' : 'h2';
 
 const { eyebrow, headline, subheadline, description, image, buttons = [] } = content;
 const { src, alt = '' } = image;
@@ -80,7 +84,7 @@ const textColor = getTextColor(background);
             {/* Content Side */}
             <div class:list={[textColor]}>
                 {eyebrow && <Eyebrow text={eyebrow} background={background} />}
-                <h2 class={textColor} data-aos="fade-up">{headline}</h2>
+                <Heading class:list={[textColor, headingLevel === 1 && "text-h2 !font-semibold"]} data-aos="fade-up">{headline}</Heading>
                 {
                     subheadline && (
                         <h3 class:list={['mt-4 text-h5', textColor]} data-aos="fade-up">

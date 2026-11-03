@@ -3,8 +3,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from '@astrojs/sitemap';
 
-// Get the site URL from environment variable or use a default for local development
-const site = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
+// Production URL. PUBLIC_SITE_URL can override it (e.g. for a preview deploy).
+const site = process.env.PUBLIC_SITE_URL || 'https://evfc1.com';
 
 export default defineConfig({
   site,
@@ -36,12 +36,10 @@ export default defineConfig({
     }
   },
   integrations: [
+    // No changefreq/priority/lastmod: Google ignores the first two, and a lastmod that
+    // changes on every build teaches crawlers to distrust the field.
     sitemap({
-      changefreq: 'weekly',
-      priority: 0.7,
-      lastmod: new Date(),
-      filter: (page) => !page.includes('/404'), // Only exclude 404 page
-      entryLimit: 10000, // Increase entry limit if you have many pages
+      filter: (page) => !page.includes('/404') && !page.includes('/coming-soon'),
     }),
   ],
   image: {

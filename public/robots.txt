@@ -1,6 +1,8 @@
-# Allow all web crawlers
+# Allow all web crawlers (search engines and AI agents)
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://titan-core.com/sitemap-index.xml 
+Sitemap: https://evfc1.com/sitemap-index.xml
+
+# Plain-text summary of the site for AI agents: https://evfc1.com/llms.txt

@@ -1,20 +1,15 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import InnerHero from '@components/sections/InnerHero.astro';
 import { siteConfig } from '@data/config';
 import { Mail, Phone, MapPin, Facebook } from 'lucide-astro';
 import firehouseImage from '../../assets/images/contact/firehouse.jpg';
 
-const seoTitle = "Contact Us | Easton Volunteer Fire Company #1";
+const seoTitle = "Contact Us";
 const seoDescription = "Get in touch with Easton Volunteer Fire Company. For emergencies dial 911. For non-emergency inquiries, contact us by phone, email, or visit our station at 1 Center Road, Easton, CT.";
 
-const heroContent = {
-    title: "Contact Us",
-    description: "We're Here to Help",
-}
 ---
 
-<Layout title={seoTitle} description={seoDescription}>
+<Layout title={seoTitle} description={seoDescription} image={firehouseImage} imageAlt="Easton Volunteer Fire Company #1 firehouse at 1 Center Road, Easton, CT">
 
     <section class="bg-background-light pt-base pb-base">
         <div class="site-container px-4">
@@ -27,7 +22,7 @@ const heroContent = {
             <div class="max-w-3xl mx-auto">
                 <!-- Contact Information -->
                 <div data-aos="fade-up">
-                    <h2 class="text-h2 text-headline-light mb-6">Get In Touch</h2>
+                    <h1 class="text-h2 !font-semibold text-headline-light mb-6">Contact Us</h1>
                     <p class="text-body-light mb-8">
                         Have questions about joining, requesting information, or other non-emergency matters? We'd love to hear from you.
                     </p>
@@ -56,7 +51,7 @@ const heroContent = {
                             <div>
                                 <h3 class="text-lg font-semibold text-headline-light mb-1">Phone</h3>
                                 <a
-                                    href={`tel:${siteConfig.Socials.Phone}`}
+                                    href={`tel:+1${siteConfig.Socials.Phone.replace(/\D/g, '')}`}
                                     class="text-body-light hover:text-primary transition-colors"
                                 >
                                     {siteConfig.Socials.Phone}

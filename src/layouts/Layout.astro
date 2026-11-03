@@ -1,11 +1,18 @@
 ---
 import "../styles/global.css";
+import "../styles/fonts.css";
+import "@fontsource/bruno-ace-sc/latin-400.css";
+import notoLatinFont from "../../node_modules/@fontsource-variable/noto-sans-kr/files/noto-sans-kr-latin-wght-normal.woff2?url";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ScrollToTop from "../components/ui/ScrollToTop.astro";
-import { SEO, siteConfig } from "../data/config";
+import Seo from "../components/seo/Seo.astro";
+import { SEO, themeSetting } from "../data/config";
+import { footerMenu } from "../data/menu";
+import { organizationSchema, websiteSchema, breadcrumbSchema } from "../data/schema";
+import defaultShareImage from "../assets/images/home/slide-firehouse.jpg";
+import type { ImageMetadata } from "astro";
 import 'aos/dist/aos.css';
-import { themeSetting } from "../data/config";
 const { theme } = themeSetting;
 
 const { SiteName, Separator, defaultDescription } = SEO;
@@ -13,7 +20,13 @@ const { SiteName, Separator, defaultDescription } = SEO;
 interface Props {
 	title?: string;
 	description?: string;
-	image?: string;
+	/** Share image (Open Graph / Twitter). Defaults to the firehouse photo. */
+	image?: ImageMetadata | string;
+	imageAlt?: string;
+	/** Keep this page out of search results. */
+	noindex?: boolean;
+	/** Extra schema.org JSON-LD objects for this page. */
+	jsonLd?: object[];
 	footerCta?: {
 		title: string;
 		description: string;
@@ -27,52 +40,53 @@ interface Props {
 	canonicalUrl?: string;
 }
 
-const { title, description, image, footerCta, canonicalUrl } = Astro.props;
+const { title, description, image, imageAlt, noindex, jsonLd = [], footerCta, canonicalUrl } = Astro.props;
 
-const pageTitle = title ? `${title} ${Separator} ${SiteName}` : SiteName;
+// Page titles are written without the site name; add it unless the title already has it.
+const pageTitle = !title ? SiteName : title.includes(SiteName) ? title : `${title} ${Separator} ${SiteName}`;
 const pageDescription = description || defaultDescription || '';
-const pageImage = image || '';
-const canonicalPath = canonicalUrl || Astro.url.pathname;
-const fullCanonicalUrl = new URL(canonicalPath, siteConfig.siteUrl).toString();
+const path = canonicalUrl || Astro.url.pathname;
 
+// Breadcrumbs for every page except the home page.
+const isHome = path === '/';
+const crumbName = footerMenu.find((m) => m.link === path.replace(/\/$/, ''))?.name ?? title ?? SiteName;
+const breadcrumbs = isHome
+	? null
+	: breadcrumbSchema([
+			{ name: 'Home', path: '/' },
+			{ name: crumbName, path },
+		]);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="canonical" href={fullCanonicalUrl} />
+		<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+		<link rel="alternate" type="text/plain" href="/llms.txt" title="Site summary for AI agents" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<meta name="description" content={pageDescription} />
-		<meta name="robots" content="index, follow" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Noto+Sans+KR:wght@100..900&display=swap" as="style">
-		<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={fullCanonicalUrl} />
-		<meta property="og:title" content={pageTitle} />
-		<meta property="og:description" content={pageDescription} />
-		{pageImage && <meta property="og:image" content={new URL(pageImage, siteConfig.siteUrl).toString()} />}
-
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={fullCanonicalUrl} />
-		<meta property="twitter:title" content={pageTitle} />
-		<meta property="twitter:description" content={pageDescription} />
-		{pageImage && <meta property="twitter:image" content={new URL(pageImage, siteConfig.siteUrl).toString()} />}
+		<Seo
+			title={pageTitle}
+			description={pageDescription}
+			path={path}
+			image={image ?? defaultShareImage}
+			imageAlt={imageAlt}
+			noindex={noindex}
+			jsonLd={[organizationSchema(), websiteSchema(), breadcrumbs, ...jsonLd]}
+		/>
+		<link rel="preload" href={notoLatinFont} as="font" type="font/woff2" crossorigin />
 	</head>
 	<body data-theme={theme}>
+		<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black">Skip to main content</a>
 		<Header />
-		<slot />
+		<main id="main">
+			<slot />
+		</main>
 		<Footer footerCta={footerCta} />
 		<ScrollToTop />
 
