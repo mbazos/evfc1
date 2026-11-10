@@ -23,7 +23,7 @@
         "@astrojs/sitemap": "^3.7.2",
         "@tailwindcss/vite": "^4.0.14",
         "@types/aos": "^3.0.7",
-        "astro": "^7.4.5",
+        "astro": "^7.4.7",
         "lucide-astro": "^0.556.0",
         "prettier": "^3.5.3",
         "prettier-plugin-astro": "^1.1.2"
